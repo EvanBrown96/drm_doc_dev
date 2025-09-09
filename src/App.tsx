@@ -41,7 +41,7 @@ function App() {
                 max_display: event.target.value
               }})}></InputSlider>
       </div>
-      <button className="text-zinc-800" onClick={() => dispatch({type: 'start_training'})}>Start Training</button>
+      <button className="text-zinc-800 bg-zinc-100" onClick={() => dispatch({type: 'start_training'})}>Start Training</button>
     </>
   } else {
     let training_setup, training_text;
@@ -56,17 +56,17 @@ function App() {
     let training_controls;
     if(state[1] == "idle") {
       training_controls = <>
-        <button className="text-zinc-800" onClick={dispatchRandomCase}>New Case</button>
+        <button className="text-zinc-800 bg-zinc-100" onClick={dispatchRandomCase}>New Case</button>
       </>
     }
     else if(state[1] == "training") {
       training_controls = <>
-        <button className="text-zinc-800" onClick={() => dispatch({type: 'see_solutions'})}>See Solutions</button>
+        <button className="text-zinc-800 bg-zinc-100" onClick={() => dispatch({type: 'see_solutions'})}>See Solutions</button>
       </>
     }
     else if(state[1] == "showing_solution") {
       training_controls = <>
-        <button className="text-zinc-800" onClick={dispatchRandomCase}>New Case</button>
+        <button className="text-zinc-800 bg-zinc-100" onClick={dispatchRandomCase}>New Case</button>
         <div className="h-60 overflow-auto w-1/2">
           {currentTraining.case.solutions.filter(s => s.length <= training_params.max_display).map(s => <p>{s.solution}</p>)}
         </div>
@@ -74,7 +74,7 @@ function App() {
     }
 
     inner = <>
-      <button className="absolute top-10 left-10 text-zinc-800" onClick={() => dispatch({type: 'change_options'})}>Settings</button>
+      <button className="absolute top-10 left-10 text-zinc-800 bg-zinc-100" onClick={() => dispatch({type: 'change_options'})}>Settings</button>
       <div className="flex flex-col items-center space-y-2 w-full">
         <ScrambleDisplayFrame scramble={training_setup}></ScrambleDisplayFrame>
         <div>{training_text}</div>
