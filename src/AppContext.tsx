@@ -1,7 +1,7 @@
 import { useReducer, createContext, useContext, useEffect } from 'react';
 import { useDb } from './db';
 import { useCubelib } from './cubelib_loader';
-import type { Case } from './db';
+import type { Case } from './types';
 import Cube from 'cubejs';
 
 let AppStateContext = createContext(null);
@@ -14,7 +14,6 @@ function AppContextProvider({ children }) {
     let {loaded: cubeLibLoaded} = useCubelib();
 
     useEffect(() => {
-        if(!dbLoaded) return;
         if(!cubeLibLoaded) return;
         dispatch({type: 'finished_init'});
         return () => dispatch({type: 'reset'})
@@ -22,15 +21,20 @@ function AppContextProvider({ children }) {
 
     const [state, dispatch] = useReducer(stateReducer, initialAppState());
 
-    if(state.state[0] == 'options' && state.state[1] == 'loading_data'){
-        let training_data = getCases(
-            state.training_parameters.drm, 
-            state.training_parameters.min_trigger, 
-            state.training_parameters.max_length, 
-            state.training_parameters.min_trigger, 
-            state.training_parameters.max_trigger);
-        dispatch({type: "data_loaded", data: training_data});
-    }   
+    useEffect(() => {
+        if(state.state[0] == 'options' && state.state[1] == 'loading_data'){
+            (async () => {
+                const training_data = await getCases(
+                    state.training_parameters.drm, 
+                    state.training_parameters.min_trigger, 
+                    state.training_parameters.max_length, 
+                    state.training_parameters.min_trigger, 
+                    state.training_parameters.max_trigger
+                );
+                dispatch({type: "data_loaded", data: training_data});
+            })();
+        }
+    });
 
     return (
         <AppStateContext value={state}>
