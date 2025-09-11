@@ -51,7 +51,7 @@ function useDb(){
         return [...new Set(matching_solns.map(s => data["cases"][s["caseId"]]))]
     }
 
-    return {loaded, getCases};
+    return {getCases};
 
 }
 

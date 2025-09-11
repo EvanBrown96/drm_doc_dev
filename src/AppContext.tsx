@@ -9,30 +9,42 @@ let AppDispatchContext = createContext(null);
 
 function AppContextProvider({ children }) {
 
-    
-    let {loaded: dbLoaded, getCases} = useDb();
+    let {getCases} = useDb();
     let {loaded: cubeLibLoaded} = useCubelib();
 
     useEffect(() => {
         if(!cubeLibLoaded) return;
         dispatch({type: 'finished_init'});
         return () => dispatch({type: 'reset'})
-    }, [dbLoaded, cubeLibLoaded]);
+    }, [cubeLibLoaded]);
 
     const [state, dispatch] = useReducer(stateReducer, initialAppState());
 
     useEffect(() => {
-        if(state.state[0] == 'options' && state.state[1] == 'loading_data'){
-            (async () => {
-                const training_data = await getCases(
-                    state.training_parameters.drm, 
-                    state.training_parameters.min_trigger, 
-                    state.training_parameters.max_length, 
-                    state.training_parameters.min_trigger, 
-                    state.training_parameters.max_trigger
-                );
-                dispatch({type: "data_loaded", data: training_data});
-            })();
+        if(state.state[0] == 'training') {
+            if(state.state[1] == 'loading_data') {
+                (async () => {
+                    const training_data = await getCases(
+                        state.training_parameters.drm, 
+                        state.training_parameters.min_trigger, 
+                        state.training_parameters.max_length, 
+                        state.training_parameters.min_trigger, 
+                        state.training_parameters.max_trigger
+                    );
+                    dispatch({type: "data_loaded", data: training_data});
+                })();
+            }
+            else if(state.state[1] == "awaiting_case") {
+                let rand_case = state.training_cases[Math.floor(Math.random()*state.training_cases.length)];
+                let scramble = rand_case.solutions[0].solution + " " + randomDrState();
+                const cube = new Cube();
+                cube.move(scramble)
+                let solution = cube.solve()
+                dispatch({type: 'set_training_case',
+                    case: rand_case,
+                    setup: solution
+                })
+            }
         }
     });
 
@@ -59,7 +71,7 @@ function initialAppState(): AppState {
     }
 }
 
-type AppStateValue = ['setup', 'initializing'] | ['options', 'options' | 'loading_data'] | ['training', 'idle' | 'training' | 'showing_solution']
+type AppStateValue = ['setup', 'initializing'] | ['training', 'idle' | 'loading_data' | 'awaiting_case' | 'training' | 'showing_solution']
 
 type AppState = { 
     training_parameters: TrainingParameters,
@@ -82,9 +94,8 @@ type AppStateAction =
 | { type: 'reset' }
 | { type: 'data_loaded', data: Case[] }
 | { type: 'set_training_case', case: Case, setup: string }
-| { type: 'start_training' }
 | { type: 'see_solutions' }
-| { type: 'change_options' };
+| { type: 'set_random_case' };
 
 function stateReducer(app_state: AppState, action: AppStateAction): AppState {
     switch(app_state.state[0]) {
@@ -93,39 +104,41 @@ function stateReducer(app_state: AppState, action: AppStateAction): AppState {
                 case 'finished_init':
                     return {
                         ...app_state,  
-                        state: ['options', 'options']
+                        state: ['training', 'idle']
                     }
                 case 'reset':
                     return initialAppState();
             }
             throw Error("invalid app state");
-        case 'options':
+        case 'training':
             switch(action.type) {
                 case 'set_training_params':
                     return {
                         ...app_state,
-                        state: ['options', 'options'],
+                        state: ['training', 'idle'],
                         training_parameters: {
                             ...app_state.training_parameters,
                             ...action.settings
                         }
                     }
-                case 'start_training':
-                    return {
-                        ...app_state,
-                        state: ['options', 'loading_data']
-                    }
                 case 'data_loaded':
                     return {
                         ...app_state,
-                        state: ['training', 'idle'],
+                        state: ['training', 'awaiting_case'],
                         training_cases: action.data,
                         current_training: undefined
                     }
-            }
-            throw Error("invalid app state");
-        case 'training':
-            switch(action.type) {
+                case 'set_random_case':
+                    if(app_state.state[1] == 'idle')
+                        return {
+                            ...app_state,
+                            state: ['training', 'loading_data'],
+                        }
+                    else
+                        return {
+                            ...app_state,
+                            state: ['training', 'awaiting_case'],
+                        }
                 case 'set_training_case':
                     console.log("training case set")
                     return {
@@ -137,11 +150,6 @@ function stateReducer(app_state: AppState, action: AppStateAction): AppState {
                     return {
                         ...app_state,
                         state: ['training', 'showing_solution']
-                    }
-                case 'change_options':
-                    return {
-                        ...app_state,
-                        state: ['options', 'options']
                     }
             };
             throw Error("invalid app state")
@@ -168,20 +176,9 @@ function useAppDispatch () {
 
 
 function useDispatchRandomCase(): () => undefined {
-    let app_state = useAppStateFull();
     let dispatch = useAppDispatch();
     return () => {
-        if(app_state.state[0] == "setup")
-            throw new Error("data not initialized");
-        let rand_case = app_state.training_cases[Math.floor(Math.random()*app_state.training_cases.length)];
-        let scramble = rand_case.solutions[0].solution + " " + randomDrState();
-        const cube = new Cube();
-        cube.move(scramble)
-        let solution = cube.solve()
-        dispatch({type: 'set_training_case',
-            case: rand_case,
-            setup: solution
-          })
+        dispatch({type: 'set_random_case'})
     }
 }
 

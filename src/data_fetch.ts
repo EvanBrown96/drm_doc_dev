@@ -82,7 +82,7 @@ class DrmLoader {
         return this.db;
     }
 
-    async getAndStoreDrmData(drm: string) {
+    async populateDrmData(drm: string) {
         const db = await this.getDb();
 
         console.log("fetching " + drm + " from file");
