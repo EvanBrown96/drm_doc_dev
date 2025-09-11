@@ -7,7 +7,7 @@ import { RzpSelect } from './RzpSelect'
 import { useAppState, useAppDispatch, useTrainingParams, useDispatchRandomCase, useCurrentTraining } from './AppContext'
 import { InputSlider } from './InputSlider'
 import { ScrambleDisplayFrame } from './ScrambleDisplayFrame'
-// import { useIndexedDb } from './db'
+import { SolutionDisplay } from './SolutionDisplay'
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
   const currentTraining = useCurrentTraining();
   
   let training_display, training_controls, training_text;
-  let bottom_panes = <></>;
+  let bottom_panes = <SolutionDisplay solutions={[]}></SolutionDisplay>;
 
   if(state[0] == 'setup') {
     training_display = <></>
@@ -49,10 +49,7 @@ function App() {
       training_setup = currentTraining.setup;
       training_text = training_setup;
       training_controls = <button className="btn" onClick={dispatchRandomCase}>New Case</button>
-      bottom_panes = 
-        <div className="max-h-60 overflow-auto w-1/2">
-          {currentTraining.case.solutions.filter(s => s.length <= training_params.max_display).map(s => <p>{s.solution}</p>)}
-        </div>
+      bottom_panes = <SolutionDisplay solutions={currentTraining.case.solutions}></SolutionDisplay>;
     }
 
     training_display = <ScrambleDisplayFrame scramble={training_setup}></ScrambleDisplayFrame>
@@ -127,10 +124,6 @@ function App() {
               <InputSlider label="Min Trigger" start={1} end={6} defaultValue={training_params.min_trigger} onChange={(event) => dispatch({type: 'set_training_params',
                     settings: {
                         min_trigger: event.target.value
-                    }})}></InputSlider>
-              <InputSlider label="Max Display" start={1} end={7} defaultValue={training_params.max_display} onChange={(event) => dispatch({type: 'set_training_params',
-                    settings: {
-                      max_display: event.target.value
                     }})}></InputSlider>
             </div>
           </ul>
