@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Cube from 'cubejs'
 import { RzpSelect } from './RzpSelect'
-import { useAppState, useAppDispatch, useTrainingParams, useDispatchRandomCase, useCurrentTraining } from './AppContext'
+import { useAppState, useAppDispatch, useTrainingParams, useDispatchRandomCase, useDispatchQueueCase, useCurrentTraining } from './AppContext'
 import { InputSlider } from './InputSlider'
 import { ScrambleDisplayFrame } from './ScrambleDisplayFrame'
 import { SolutionDisplay } from './SolutionDisplay'
@@ -15,6 +15,7 @@ function App() {
   const dispatch = useAppDispatch();
   const training_params = useTrainingParams();
   const dispatchRandomCase = useDispatchRandomCase();
+  const dispatchQueueCase = useDispatchQueueCase();
   const currentTraining = useCurrentTraining();
   
   let training_display, training_controls, training_text;
@@ -48,7 +49,10 @@ function App() {
     else if(state[1] == "showing_solution") {
       training_setup = currentTraining.setup;
       training_text = training_setup;
-      training_controls = <button className="btn" onClick={dispatchRandomCase}>New Case</button>
+      training_controls = <div className="flex flex-row space-x-4">
+        <button className="btn" onClick={dispatchRandomCase}>New Case</button>
+        <button className="btn" onClick={dispatchQueueCase}>Queue</button>
+      </div>;
       bottom_panes = <SolutionDisplay solutions={currentTraining.case.solutions}></SolutionDisplay>;
     }
 

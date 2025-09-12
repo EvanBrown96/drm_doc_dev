@@ -4,7 +4,6 @@ import { useAppDispatch, useTrainingParams } from './AppContext.jsx';
 function RzpSelect({ defaultValue }) {
     const app_dispatch = useAppDispatch();
     const training_params = useTrainingParams();
-    console.log(training_params)
 
     function updateStateWithDrm(new_drm) {
         app_dispatch({
