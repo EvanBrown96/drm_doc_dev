@@ -161,7 +161,7 @@ function App() {
             <br /><br />
             the 'trigger' of a solution starts at the first rzp-breaking move (R or L) of the solution, for example:<br />
                  U R2 U2 B2 U R has a trigger length of 1<br />
-                 U R U R2 F2 R has a trigger length of 1
+                 U R U R2 F2 R has a trigger length of 5
             <br /><br />
             any case which has at least one solution matching the selected options may appear. after training, all solutions for the current case will be displayed. the maximum length to display may be chosen independently.
             <br /><br />
