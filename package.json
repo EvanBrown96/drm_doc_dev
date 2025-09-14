@@ -16,7 +16,8 @@
     "react-dom": "^19.1.0",
     "scramble-display": "^0.6.6",
     "tailwindcss": "^4.1.11",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "daisyui": "^5.1.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

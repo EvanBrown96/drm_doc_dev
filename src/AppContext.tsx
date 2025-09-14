@@ -119,7 +119,6 @@ function stateReducer(app_state: AppState, action: AppStateAction): AppState {
                 case 'data_loaded':
                     return assignRandomCase({...app_state, training_cases: action.data});
                 case 'set_random_case':
-                    console.log(app_state.queue);
                     if(app_state.state[1] == 'idle')
                         return {
                             ...app_state,

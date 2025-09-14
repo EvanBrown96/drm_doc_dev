@@ -11,7 +11,7 @@ function SolutionDisplay({solutions}: {solutions: Solution[]}) {
     return <>
         <div className="flex flex-col items-center space-y-4">
             <InputSlider label="Max Display" start={1} end={7} defaultValue={max_display} onChange={event => setMaxDisplay(event.target.value)}></InputSlider>
-            <div className="max-h-60 overflow-auto w-1/2">
+            <div className="overflow-auto">
                 {solutions.filter(s => s.length <= max_display).map(s => <p>{s.solution}</p>)}
             </div>
         </div>
