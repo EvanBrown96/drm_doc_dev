@@ -40,7 +40,7 @@ async function readRzpData(rzp: string): Promise<{cases: Case[], solutions: Solu
 
 const DB_PARAMS = {
     name: "drm",
-    version: 1
+    version: 2
 };
 
 async function connectToDb(): Promise<IDBDatabase> {
@@ -51,8 +51,14 @@ async function connectToDb(): Promise<IDBDatabase> {
         request.onupgradeneeded = (event) => {
             console.log("upgrading db")
             const database = request.result;
-            if(event.oldVersion == 0){
+            if(event.oldVersion == 0) {
                 console.log("upgrading from version 0");
+                let case_store = database.createObjectStore("drm_data", {'keyPath': 'drm'})
+            }
+            else if(event.oldVersion == 1) {
+                console.log("upgrading from version 1")
+                // purge some invalid data and reload
+                database.deleteObjectStore("drm_data")
                 let case_store = database.createObjectStore("drm_data", {'keyPath': 'drm'})
             }
         }

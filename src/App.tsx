@@ -18,7 +18,7 @@ function App() {
   const currentTraining = useCurrentTraining();
   
   let training_display, training_controls, training_text;
-  let bottom_panes = <SolutionDisplay solutions={[]}></SolutionDisplay>;
+  let solutions = <SolutionDisplay solutions={[]}></SolutionDisplay>;
   let key_press;
 
   if(state[0] == 'setup') {
@@ -55,7 +55,7 @@ function App() {
         <button className="btn" title="spacebar" onClick={dispatchRandomCase}>New Case</button>
         <button className="btn" title="q" onClick={dispatchQueueCase}>Queue</button>
       </div>;
-      bottom_panes = <SolutionDisplay solutions={currentTraining.case.solutions}></SolutionDisplay>;
+      solutions = <SolutionDisplay solutions={currentTraining.case.solutions}></SolutionDisplay>;
       key_press = e => { 
         if([" ", "Enter"].includes(e.key)) dispatchRandomCase();
         else if(e.key == "q") dispatchQueueCase();
@@ -66,6 +66,8 @@ function App() {
   }
 
   
+  let bottom_panes = solutions;
+
   useEffect(() => {
     if(!key_press) return;
     document.addEventListener('keydown', key_press);
@@ -117,7 +119,7 @@ function App() {
             
             <div className="flex flex-col items-center gap-2 overflow:hidden">
               {training_display}
-              {training_text}
+              <p className="text-center px-2">{training_text}</p>
               {training_controls}
               <div className="divider"></div>
               {bottom_panes}
@@ -145,9 +147,9 @@ function App() {
             </ul>
           </div>
         </div>
-        <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
+        <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4 mt-2">
           <aside>
-            <p>v0.2</p>
+            <p>v1.0</p>
           </aside>
         </footer>
       </div>
