@@ -1,12 +1,13 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css'
-import { RzpSelect } from './RzpSelect'
-import { useAppState, useAppDispatch, useTrainingParams, useDispatchRandomCase, useDispatchQueueCase, useCurrentTraining } from './AppContext'
-import { InputSlider } from './InputSlider'
-import { ScrambleDisplayFrame } from './ScrambleDisplayFrame'
-import { SolutionDisplay } from './SolutionDisplay'
-import { useEffect } from 'react'
+import './App.css';
+import { RzpSelect } from './RzpSelect';
+import { useAppState, useAppDispatch, useTrainingParams, useDispatchRandomCase, useDispatchQueueCase, useCurrentTraining } from './AppContext';
+import { InputSlider } from './InputSlider';
+import { ScrambleDisplayFrame } from './ScrambleDisplayFrame';
+import { SolutionDisplay } from './SolutionDisplay';
+import { useEffect } from 'react';
+import { VERSION } from './constants';
 
 function App() {
 
@@ -157,7 +158,7 @@ function App() {
         </div>
         <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4 mt-2">
           <aside>
-            <p>v1.0</p>
+            <p>v{VERSION}</p>
           </aside>
         </footer>
       </div>

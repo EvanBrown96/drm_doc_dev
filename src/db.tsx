@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import FetchWorker from './fetch_worker.ts?worker';
-import { RZPs } from './rzp_constants';
+import { RZPs } from './constants';
 import { DrmLoader } from './data_fetch';
 
 import type {Solution, Case} from './types.ts';
