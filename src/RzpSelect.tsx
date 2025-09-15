@@ -1,9 +1,8 @@
-import { RZPs } from './rzp_constants.js';
-import { useAppDispatch, useTrainingParams } from './AppContext.jsx';
+import { RZPs } from './constants.js';
+import { useAppDispatch } from './AppContext.jsx';
 
 function RzpSelect({ defaultValue }) {
     const app_dispatch = useAppDispatch();
-    const training_params = useTrainingParams();
 
     function updateStateWithDrm(new_drm) {
         app_dispatch({

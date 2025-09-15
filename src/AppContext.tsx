@@ -31,7 +31,8 @@ function AppContextProvider({ children }) {
                         state.training_parameters.min_trigger, 
                         state.training_parameters.max_trigger
                     );
-                    dispatch({type: "data_loaded", data: training_data});
+                    if(training_data.length < 1) dispatch({type: "invalid_settings"});
+                    else dispatch({type: "data_loaded", data: training_data});
                 })();
             }
         }
@@ -60,7 +61,7 @@ function initialAppState(): AppState {
     }
 }
 
-type AppStateValue = ['setup', 'initializing'] | ['training', 'idle' | 'loading_data' | 'awaiting_case' | 'training' | 'showing_solution']
+type AppStateValue = ['setup', 'initializing'] | ['training', 'idle' | 'loading_data' | 'awaiting_case' | 'training' | 'showing_solution'] | ['error', string]
 
 type AppState = { 
     training_parameters: TrainingParameters,
@@ -89,7 +90,8 @@ type AppStateAction =
 | { type: 'set_training_case', case: Case, setup: string }
 | { type: 'see_solutions' }
 | { type: 'set_random_case' }
-| { type: 'queue_case' };
+| { type: 'queue_case' }
+| { type: 'invalid_settings' };
 
 function stateReducer(app_state: AppState, action: AppStateAction): AppState {
     switch(app_state.state[0]) {
@@ -104,6 +106,13 @@ function stateReducer(app_state: AppState, action: AppStateAction): AppState {
                     return initialAppState();
             }
             throw Error("invalid app state");
+        case 'error':
+            switch(app_state.state[1]) {
+                case 'invalid_settings':
+                    return stateReducer({...app_state, state: ['training', 'idle']}, action);
+            }
+            // app is bricked
+            return;
         case 'training':
             switch(action.type) {
                 case 'set_training_params':
@@ -165,6 +174,11 @@ function stateReducer(app_state: AppState, action: AppStateAction): AppState {
                     return {
                         ...app_state,
                         state: ['training', 'showing_solution']
+                    }
+                case 'invalid_settings':
+                    return {
+                        ...app_state,
+                        state: ['error', 'invalid_settings']
                     }
             };
             throw Error("invalid app state")
