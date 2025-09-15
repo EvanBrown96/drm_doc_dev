@@ -20,13 +20,20 @@ function App() {
   let training_display, training_controls, training_text;
   let solutions = <SolutionDisplay solutions={[]}></SolutionDisplay>;
   let key_press;
+  let error_bar = <></>;
 
   if(state[0] == 'setup') {
     training_display = <></>
     training_text = "Loading..."
-    training_controls = <>
-        <button className="btn disabled">New Case</button>
-    </>
+    training_controls = <button className="btn btn-disabled">New Case</button>
+  } else if(state[0] == 'error') {
+    training_display = <ScrambleDisplayFrame scramble=""></ScrambleDisplayFrame>;
+    training_text = "No cases :("
+    training_controls = <button className="btn btn-disabled">New Case</button>
+    if(state[1] == "invalid_settings") error_bar = 
+      <div role="alert" className="alert alert-error alert-soft">
+        <span>No cases match the selected criteria.</span>
+      </div>;
   } else {
     let training_setup = "";
     if(state[1] == "idle") {
@@ -36,11 +43,11 @@ function App() {
     }
     else if(state[1] == "loading_data") {
       training_text = "Loading cases..."
-      training_controls = <button className="btn disabled">See Solutions</button>
+      training_controls = <button className="btn btn-disabled">See Solutions</button>
     }
     else if(state[1] == "awaiting_case") {
       training_text = "...";
-      training_controls = <button className="btn disabled">See Solutions</button>
+      training_controls = <button className="btn btn-disabled">See Solutions</button>
     }
     else if(state[1] == "training") {
       training_setup = currentTraining.setup;
@@ -117,6 +124,7 @@ function App() {
               </div>
             </div>
             
+            {error_bar}
             <div className="flex flex-col items-center gap-2 overflow:hidden">
               {training_display}
               <p className="text-center px-2">{training_text}</p>
