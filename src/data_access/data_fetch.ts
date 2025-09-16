@@ -1,4 +1,4 @@
-import type { Solution, Case } from './types';
+import type { Solution, Case } from '../types/types';
 
 function parseCaseData(case_data: string): {cases: Case[], solutions: Solution[]} {
     

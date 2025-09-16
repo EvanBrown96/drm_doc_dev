@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAppDispatch, useTrainingParams } from './AppContext.jsx';
+import { useAppDispatch, useTrainingParams } from '../AppContext.jsx';
 
 function InputSlider({label, start, end, defaultValue, onChange}) {
 

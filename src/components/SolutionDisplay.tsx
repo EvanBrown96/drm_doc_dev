@@ -1,4 +1,4 @@
-import type { Solution } from "./types";
+import type { Solution } from "../types/types";
 import { InputSlider } from "./InputSlider";
 import { useState } from "react"
 
