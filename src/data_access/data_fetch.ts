@@ -38,9 +38,22 @@ async function readRzpData(rzp: string): Promise<{cases: Case[], solutions: Solu
     return parseCaseData(await response.text());
 }
 
+async function readVersionData() {
+    let response = await fetch("/drm_doc/versions.csv");
+    let text = (await response.text()).split("\n");
+
+    let versions = {};
+
+    for(let i = 0; i < text.length; i++) {
+        let line_data = text[i].split(",")
+        versions[line_data[0]] = Number(line_data[1])
+    }
+    return versions;
+}
+
 const DB_PARAMS = {
     name: "drm",
-    version: 2
+    version: 3
 };
 
 async function connectToDb(): Promise<IDBDatabase> {
@@ -51,15 +64,13 @@ async function connectToDb(): Promise<IDBDatabase> {
         request.onupgradeneeded = (event) => {
             console.log("upgrading db")
             const database = request.result;
-            if(event.oldVersion == 0) {
-                console.log("upgrading from version 0");
-                let case_store = database.createObjectStore("drm_data", {'keyPath': 'drm'})
+            if(event.oldVersion < 1) {
+                console.log("upgrading to version 1");
+                database.createObjectStore("drm_data", {'keyPath': 'drm'})
             }
-            else if(event.oldVersion == 1) {
-                console.log("upgrading from version 1")
-                // purge some invalid data and reload
-                database.deleteObjectStore("drm_data")
-                let case_store = database.createObjectStore("drm_data", {'keyPath': 'drm'})
+            if(event.oldVersion < 3) {
+                console.log("upgrading to version 3");
+                database.createObjectStore("metadata", {'keyPath': 'meta_key'})
             }
         }
 
@@ -97,7 +108,20 @@ class DrmLoader {
         let drm_data_store = transaction.objectStore("drm_data");
         drm_data_store.add({"drm": drm, "data": drm_data});
         transaction.commit();
+        return drm_data;
     
+    }
+
+    async populateVersionData(): Promise<Record<string, number>> {
+        const db = await this.getDb();
+
+        console.log("fetching version information from file");
+        let version_data = await readVersionData();
+        let transaction = db.transaction(["metadata"], "readwrite");
+        let drm_data_store = transaction.objectStore("metadata");
+        drm_data_store.add({"meta_key": "versions", "data": version_data});
+        transaction.commit();
+        return version_data;
     }
 
     async getLoadedDrms(): Promise<IDBValidKey[]> {
@@ -121,6 +145,21 @@ class DrmLoader {
             let request = drm_data_store.get(drm);
             request.onerror = reject;
             request.onsuccess = _ev => resolve(request.result.data);
+        });
+    }
+
+    async getVersionData(): Promise<Record<string, number> | undefined> {
+        const db = await this.getDb();
+
+        return new Promise((resolve, reject) => {
+            let transaction = db.transaction(["metadata"], "readonly");
+            let drm_data_store = transaction.objectStore("metadata");
+            let request = drm_data_store.get("versions");
+            request.onerror = reject;
+            request.onsuccess = _ev => {
+                if(request.result) resolve(request.result.data);
+                else resolve(undefined);
+            }
         });
     }
 }
