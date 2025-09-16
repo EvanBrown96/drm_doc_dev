@@ -1,5 +1,5 @@
-import { RZPs } from './constants.js';
-import { useAppDispatch } from './AppContext.jsx';
+import { RZPs } from '../constants.js';
+import { useAppDispatch } from '../AppContext.jsx';
 
 function RzpSelect({ defaultValue }) {
     const app_dispatch = useAppDispatch();

@@ -1,9 +1,9 @@
 import { useRef, useEffect } from 'react';
 import FetchWorker from './fetch_worker.ts?worker';
-import { RZPs } from './constants';
+import { RZPs } from '../constants';
 import { DrmLoader } from './data_fetch';
 
-import type {Solution, Case} from './types.ts';
+import type {Solution, Case} from '../types/types';
 
 function useDb(){
 

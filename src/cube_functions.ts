@@ -1,4 +1,4 @@
-import type { Case } from "./types";
+import type { Case } from "./types/types";
 import Cube from 'cubejs';
 
 function gen_setup(the_case: Case): string {

@@ -1,11 +1,11 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css';
-import { RzpSelect } from './RzpSelect';
+import { RzpSelect } from './components/RzpSelect';
 import { useAppState, useAppDispatch, useTrainingParams, useDispatchRandomCase, useDispatchQueueCase, useCurrentTraining } from './AppContext';
-import { InputSlider } from './InputSlider';
-import { ScrambleDisplayFrame } from './ScrambleDisplayFrame';
-import { SolutionDisplay } from './SolutionDisplay';
+import { InputSlider } from './components/InputSlider';
+import { ScrambleDisplayFrame } from './components/ScrambleDisplayFrame';
+import { SolutionDisplay } from './components/SolutionDisplay';
 import { useEffect } from 'react';
 import { VERSION } from './constants';
 

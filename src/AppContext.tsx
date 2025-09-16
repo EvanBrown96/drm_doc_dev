@@ -1,7 +1,7 @@
 import { useReducer, createContext, useContext, useEffect } from 'react';
-import { useDb } from './db';
+import { useDb } from './data_access/db';
 import { useCubelib } from './cubelib_loader';
-import type { Case } from './types';
+import type { Case } from './types/types';
 import { gen_setup } from "./cube_functions"
 
 let AppStateContext = createContext(null);
