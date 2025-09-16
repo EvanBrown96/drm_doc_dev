@@ -119,7 +119,7 @@ class DrmLoader {
         let version_data = await readVersionData();
         let transaction = db.transaction(["metadata"], "readwrite");
         let drm_data_store = transaction.objectStore("metadata");
-        drm_data_store.add({"meta_key": "versions", "data": version_data});
+        drm_data_store.put({"meta_key": "versions", "data": version_data});
         transaction.commit();
         return version_data;
     }
