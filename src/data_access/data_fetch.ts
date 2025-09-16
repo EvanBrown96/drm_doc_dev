@@ -106,7 +106,7 @@ class DrmLoader {
         let drm_data = await readRzpData(drm);
         let transaction = db.transaction(["drm_data"], "readwrite");
         let drm_data_store = transaction.objectStore("drm_data");
-        drm_data_store.add({"drm": drm, "data": drm_data});
+        drm_data_store.put({"drm": drm, "data": drm_data});
         transaction.commit();
         return drm_data;
     
