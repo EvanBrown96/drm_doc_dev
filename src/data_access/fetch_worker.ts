@@ -4,13 +4,14 @@ import { DrmLoader } from './data_fetch';
 const loader = new DrmLoader();
     
 onmessage = async (msg) => {
-    let drms = msg.data.drms;
-    const already_loaded = await loader.getLoadedDrms();
-    console.log("loaded drms: " + already_loaded);
 
     const old_versions = await loader.getVersionData();
     if(!old_versions) console.log("no previous version information found");
     const versions = await loader.populateVersionData();
+
+    let drms = msg.data.drms;
+    const already_loaded = await loader.getLoadedDrms();
+    console.log("loaded drms: " + already_loaded);
 
     for(let drm of drms) {
         try {
