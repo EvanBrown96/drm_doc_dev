@@ -1,5 +1,5 @@
 
-import { DrmLoader } from './data_access/data_fetch';
+import { DrmLoader } from './data_fetch';
 
 const loader = new DrmLoader();
     
