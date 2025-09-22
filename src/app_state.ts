@@ -1,0 +1,112 @@
+import type { Case } from './types/types';
+import { gen_setup } from "./cube_functions";
+
+export type AppState = SetupState | StandardTrainerState | ErrorState;
+
+export type SetupState = {
+    state: 'setup',
+    substate: 'initializing'
+}
+
+export type StandardTrainerState = {
+    state: 'training',
+    substate: 'idle' | 'loading_data' | 'awaiting_case' | 'training' | 'showing_solution' | 'invalid_settings',
+    training_parameters: StandardTrainingParameters,
+    current_training?: {case: Case, setup: string},
+    training_cases?: Case[],
+    queue?: {
+        time_since_queue: number,
+        queued: Case[]
+    }
+}
+
+type ErrorState = {
+    state: 'error',
+    substate: string
+}
+
+export type StandardTrainingParameters = {
+    drm: string,
+    max_length: number,
+    max_trigger: number,
+    min_trigger: number
+};
+
+function updateTrainingParams(current_params: StandardTrainingParameters, update: Partial<StandardTrainingParameters>) {
+    return {
+        ...current_params,
+        ...update
+    }
+}
+
+export type AppStateAction =
+  { type: 'finished_init' }
+| { type: 'set_training_params', settings: Partial<StandardTrainingParameters> }
+| { type: 'reset' }
+| { type: 'data_loaded', data: Case[] }
+| { type: 'set_training_case', case: Case, setup: string }
+| { type: 'see_solutions' }
+| { type: 'queue_case' }
+| { type: 'invalid_settings' }
+| { type: 'new_case' };
+
+function setupState(): SetupState {
+    return {state: 'setup', substate: 'initializing'};
+}
+
+const StandardTrainer = {
+    IdleState: (previous_state: AppState, training_params: StandardTrainingParameters): StandardTrainerState => {
+        return {state: 'training', substate: 'idle', training_parameters: training_params}
+    },
+
+    LoadingState: (previous_state: StandardTrainerState): StandardTrainerState => {
+        return {...previous_state, substate: 'loading_data'}
+    },
+
+    AwaitingState: (previous_state: StandardTrainerState, training_data?: Case[]): StandardTrainerState => {
+        if(!training_data) training_data = previous_state.training_cases;
+        return {...previous_state, substate: 'awaiting_case', training_cases: training_data};
+    },
+
+    TrainingState: (previous_state: StandardTrainerState, new_case: Case, queue?: {
+        time_since_queue: number,
+        queued: Case[]
+    }): StandardTrainerState => {
+        if(!queue) queue = previous_state.queue;
+        return {
+            ...previous_state,
+            substate: 'training',
+            current_training: {case: new_case, setup: gen_setup(new_case)},
+            queue
+        };
+    },
+
+    SolutionsState: (previous_state: StandardTrainerState): StandardTrainerState => {
+        return {
+            ...previous_state,
+            substate: 'showing_solution'
+        }
+    },
+
+    InvalidSettingsState: (previous_state: StandardTrainerState): StandardTrainerState => {
+        return {
+            ...previous_state,
+            substate: 'invalid_settings'
+        }
+    },
+
+    getTrainingParams: (app_state: StandardTrainerState): StandardTrainingParameters => {
+        return app_state.training_parameters;
+    },
+
+    getAppSubState: (app_state: StandardTrainerState): StandardTrainerState["substate"] => {
+        return app_state.substate;
+    },
+
+    getCurrentTraining: (app_state: StandardTrainerState): null | {case: Case, setup: string} => {
+        if(!['training', 'showing_solution'].includes(app_state.substate)) return null;
+        return app_state.current_training;
+    }
+}
+
+export { StandardTrainer, setupState, updateTrainingParams };

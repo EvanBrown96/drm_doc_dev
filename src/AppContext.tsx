@@ -3,6 +3,7 @@ import { useDb } from './data_access/db';
 import { useCubelib } from './cubelib_loader';
 import type { Case } from './types/types';
 import { gen_setup } from "./cube_functions"
+import { AppState, AppStateAction, StandardTrainingParameters, StandardTrainer, setupState, updateTrainingParams, StandardTrainerState, SetupState } from './app_state';
 
 let AppStateContext = createContext(null);
 let AppDispatchContext = createContext(null);
@@ -18,11 +19,11 @@ function AppContextProvider({ children }) {
         return () => dispatch({type: 'reset'})
     }, [cubeLibLoaded]);
 
-    const [state, dispatch] = useReducer(stateReducer, initialAppState());
+    const [state, dispatch] = useReducer(stateReducer, setupState());
 
     useEffect(() => {
-        if(state.state[0] == 'training') {
-            if(state.state[1] == 'loading_data') {
+        if(state.state == 'training') {
+            if(state.substate == 'loading_data') {
                 (async () => {
                     const training_data = await getCases(
                         state.training_parameters.drm, 
@@ -48,163 +49,83 @@ function AppContextProvider({ children }) {
 }
 
 
-function initialAppState(): AppState {
-    return {
-        training_parameters: {
-            drm: "4c4e",
-            max_length: 5,
-            max_trigger: 4,
-            min_trigger: 1,
-            max_display: 6
-        },
-        state: ['setup', 'initializing']
-    }
-}
-
-type AppStateValue = ['setup', 'initializing'] | ['training', 'idle' | 'loading_data' | 'awaiting_case' | 'training' | 'showing_solution'] | ['error', string]
-
-type AppState = { 
-    training_parameters: TrainingParameters,
-    state: AppStateValue,
-    current_training?: {case: Case, setup: string},
-    training_cases?: Case[],
-    queue?: {
-        time_since_queue: number,
-        queued: Case[]
-    }
+const DEFAULT_TRAINING: StandardTrainingParameters =
+{
+    drm: "4c4e",
+    max_length: 5,
+    max_trigger: 4,
+    min_trigger: 1
 };
-
-export type TrainingParameters = {
-    drm: string,
-    max_length: number,
-    max_trigger: number,
-    min_trigger: number,
-    max_display: number
-};
-
-type AppStateAction =
-  { type: 'finished_init' }
-| { type: 'set_training_params', settings: Partial<TrainingParameters> }
-| { type: 'reset' }
-| { type: 'data_loaded', data: Case[] }
-| { type: 'set_training_case', case: Case, setup: string }
-| { type: 'see_solutions' }
-| { type: 'set_random_case' }
-| { type: 'queue_case' }
-| { type: 'invalid_settings' };
 
 function stateReducer(app_state: AppState, action: AppStateAction): AppState {
-    switch(app_state.state[0]) {
+    switch(app_state.state) {
         case 'setup':
-            switch(action.type) {
-                case 'finished_init':
-                    return {
-                        ...app_state,  
-                        state: ['training', 'idle']
-                    }
-                case 'reset':
-                    return initialAppState();
-            }
-            throw Error("invalid app state");
-        case 'error':
-            switch(app_state.state[1]) {
-                case 'invalid_settings':
-                    return stateReducer({...app_state, state: ['training', 'idle']}, action);
-            }
-            // app is bricked
-            return;
+            return setupStateReducer(app_state, action);
         case 'training':
-            switch(action.type) {
-                case 'set_training_params':
-                    return {
-                        ...app_state,
-                        state: ['training', 'idle'],
-                        training_parameters: {
-                            ...app_state.training_parameters,
-                            ...action.settings
-                        },
-                        queue: undefined
-                    }
-                case 'data_loaded':
-                    return assignRandomCase({...app_state, training_cases: action.data});
-                case 'set_random_case':
-                    if(app_state.state[1] == 'idle')
-                        return {
-                            ...app_state,
-                            state: ['training', 'loading_data']
-                        }
-                    else
-                        if(app_state.queue) {
-                            let time_since_queue = app_state.queue.time_since_queue;
-                            if(Math.random() * 64 < Math.pow(2, time_since_queue)) {
-                                let new_queue = {time_since_queue: 0, queued: [...app_state.queue.queued]}
-                                let case_to_train = new_queue.queued.splice(Math.floor(Math.random()*new_queue.queued.length), 1)[0];
-                                new_queue.time_since_queue = 0;
-                                if(new_queue.queued.length < 1) new_queue = undefined;
-                                return {
-                                    ...app_state,
-                                    state: ['training', 'training'],
-                                    current_training: {case: case_to_train, setup: gen_setup(case_to_train)},
-                                    queue: new_queue
-                                };
-                            }
-                            time_since_queue += 1;
-                            app_state = {...app_state, queue: {...app_state.queue, time_since_queue}};
-                        }
-                        return assignRandomCase(app_state);
-                case 'queue_case':
-                    let last_case = app_state.current_training.case;
-                    let assigned_random_case = stateReducer(app_state, {type: 'set_random_case'});
-
-                    let new_queue: {queued: Case[], time_since_queue: number};
-                    if(assigned_random_case.queue) new_queue = {...assigned_random_case.queue, queued: [...assigned_random_case.queue.queued]};
-                    else new_queue = {queued: [], time_since_queue: 0};
-                    new_queue.queued.push(last_case);
-                    return {
-                        ...assigned_random_case,
-                        queue: new_queue
-                    }
-                case 'set_training_case':
-                    return {
-                        ...app_state,
-                        state: ['training', 'training'],
-                        current_training: {case: action.case, setup: action.setup}
-                    }
-                case 'see_solutions':
-                    return {
-                        ...app_state,
-                        state: ['training', 'showing_solution']
-                    }
-                case 'invalid_settings':
-                    return {
-                        ...app_state,
-                        state: ['error', 'invalid_settings']
-                    }
-            };
-            throw Error("invalid app state")
+            return standardStateReducer(app_state, action);
     }
 }
 
-function assignRandomCase(app_state): AppState {
-    let rand_case = app_state.training_cases[Math.floor(Math.random()*app_state.training_cases.length)];
-    let setup = gen_setup(rand_case);
-    return {
-        ...app_state,
-        state: ['training', 'training'],
-        current_training: {case: rand_case, setup: setup}
+function setupStateReducer(app_state: AppState, action: AppStateAction): AppState {
+    switch(action.type) {
+        case 'finished_init':
+            return StandardTrainer.IdleState(app_state, DEFAULT_TRAINING)
+        case 'reset':
+            return setupState();
+    }
+    throw Error("invalid app state");
+}
+
+function standardStateReducer(app_state: StandardTrainerState, action: AppStateAction): StandardTrainerState {
+    switch(action.type) {
+        case 'set_training_params':
+            return StandardTrainer.IdleState(app_state, updateTrainingParams(app_state.training_parameters, action.settings));
+        case 'data_loaded':
+            return assignRandomCase({...app_state, training_cases: action.data});
+        case 'new_case':
+            if(app_state.substate == 'idle') return StandardTrainer.LoadingState(app_state);
+            else
+                if(app_state.queue) {
+                    let time_since_queue = app_state.queue.time_since_queue;
+                    if(Math.random() * 64 < Math.pow(2, time_since_queue)) {
+                        let new_queue = {time_since_queue: 0, queued: [...app_state.queue.queued]}
+                        let case_to_train = new_queue.queued.splice(Math.floor(Math.random()*new_queue.queued.length), 1)[0];
+                        new_queue.time_since_queue = 0;
+                        if(new_queue.queued.length < 1) new_queue = undefined;
+                        return StandardTrainer.TrainingState(app_state, case_to_train, new_queue);
+                    }
+                    time_since_queue += 1;
+                    app_state = {...app_state, queue: {...app_state.queue, time_since_queue}};
+                }
+                return assignRandomCase(app_state);
+        case 'queue_case':
+            let last_case = app_state.current_training.case;
+            let assigned_random_case = assignRandomCase(app_state);
+
+            let new_queue: {queued: Case[], time_since_queue: number};
+            if(assigned_random_case.queue) new_queue = {...assigned_random_case.queue, queued: [...assigned_random_case.queue.queued]};
+            else new_queue = {queued: [], time_since_queue: 0};
+            new_queue.queued.push(last_case);
+            return {
+                ...assigned_random_case,
+                queue: new_queue
+            }
+        case 'see_solutions':
+            return StandardTrainer.SolutionsState(app_state);
+        case 'invalid_settings':
+            return StandardTrainer.InvalidSettingsState(app_state);
     };
+    throw Error("invalid app state")
 }
 
-function useAppStateFull(): AppState {
+
+function assignRandomCase(app_state): StandardTrainerState {
+    let rand_case = app_state.training_cases[Math.floor(Math.random()*app_state.training_cases.length)];
+    return StandardTrainer.TrainingState(app_state, rand_case)
+}
+
+function useAppState(): AppState {
     return useContext(AppStateContext);
-}
-
-function useTrainingParams(): TrainingParameters {
-    return useAppStateFull().training_parameters;
-}
-
-function useAppState(): AppStateValue {
-    return useAppStateFull().state;
 }
 
 function useAppDispatch () {
@@ -212,10 +133,10 @@ function useAppDispatch () {
 }
 
 
-function useDispatchRandomCase(): () => undefined {
+function useDispatchNewCase(): () => undefined {
     let dispatch = useAppDispatch();
     return () => {
-        dispatch({type: 'set_random_case'})
+        dispatch({type: 'new_case'})
     }
 }
 
@@ -226,10 +147,4 @@ function useDispatchQueueCase(): () => undefined {
     }
 }
 
-function useCurrentTraining(): null | {case: Case, setup: string} {
-    let app_state = useAppStateFull();
-    if(app_state.state[0] != "training" || app_state.state[1] == "idle") return null;
-    return app_state.current_training;
-}
-
-export { AppContextProvider, useAppStateFull, useTrainingParams, useAppState, useAppDispatch, useDispatchRandomCase, useDispatchQueueCase, useCurrentTraining };
+export { AppContextProvider, useAppState, useAppDispatch, useDispatchNewCase, useDispatchQueueCase };

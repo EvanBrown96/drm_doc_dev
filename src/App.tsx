@@ -2,70 +2,89 @@
 // import viteLogo from '/vite.svg'
 import './App.css';
 import { RzpSelect } from './components/RzpSelect';
-import { useAppState, useAppDispatch, useTrainingParams, useDispatchRandomCase, useDispatchQueueCase, useCurrentTraining } from './AppContext';
+import { useAppState, useAppDispatch, useDispatchNewCase, useDispatchQueueCase } from './AppContext';
 import { InputSlider } from './components/InputSlider';
 import { ScrambleDisplayFrame } from './components/ScrambleDisplayFrame';
 import { SolutionDisplay } from './components/SolutionDisplay';
 import { useEffect } from 'react';
 import { VERSION } from './constants';
+import { StandardTrainer } from './app_state';
 
 function App() {
 
   const state = useAppState();
   const dispatch = useAppDispatch();
-  const training_params = useTrainingParams();
-  const dispatchRandomCase = useDispatchRandomCase();
+  const dispatchNewCase = useDispatchNewCase();
   const dispatchQueueCase = useDispatchQueueCase();
-  const currentTraining = useCurrentTraining();
   
   let training_display, training_controls, training_text;
   let solutions = <SolutionDisplay solutions={[]}></SolutionDisplay>;
   let key_press;
   let error_bar = <></>;
+  let parameter_selection = <></>;
 
-  if(state[0] == 'setup') {
-    training_display = <></>
-    training_text = "Loading..."
-    training_controls = <button className="btn btn-disabled">New Case</button>
-  } else if(state[0] == 'error') {
-    training_display = <ScrambleDisplayFrame scramble=""></ScrambleDisplayFrame>;
-    training_text = "No cases :("
-    training_controls = <button className="btn btn-disabled">New Case</button>
-    if(state[1] == "invalid_settings") error_bar = 
-      <div role="alert" className="alert alert-error alert-soft">
-        <span>No cases match the selected criteria.</span>
-      </div>;
-  } else {
+  if(state.state == 'setup') {
+    training_display = <></>;
+    training_text = "Loading...";
+    training_controls = <button className="btn btn-disabled">New Case</button>;
+  } else if(state.state == 'training') {
+    const substate = StandardTrainer.getAppSubState(state);
+    const training_params = StandardTrainer.getTrainingParams(state);
+    parameter_selection = <>
+      <RzpSelect defaultValue={training_params.drm}></RzpSelect>
+      <InputSlider label="Max Optimal" start={1} end={7} defaultValue={training_params.max_length} onChange={(event) => dispatch({type: 'set_training_params',
+            settings: {
+                max_length: Number(event.target.value)
+            }})}></InputSlider>
+      <InputSlider label="Max Trigger" start={1} end={6} defaultValue={training_params.max_trigger} onChange={(event) => dispatch({type: 'set_training_params',
+            settings: {
+                max_trigger: Number(event.target.value)
+            }})}></InputSlider>
+      <InputSlider label="Min Trigger" start={1} end={6} defaultValue={training_params.min_trigger} onChange={(event) => dispatch({type: 'set_training_params',
+            settings: {
+                min_trigger: Number(event.target.value)
+            }})}></InputSlider>
+    </>;
+
     let training_setup = "";
-    if(state[1] == "idle") {
+    if(substate == "idle") {
       training_text = "Click to start training...";
-      training_controls = <button className="btn" title="spacebar" onClick={dispatchRandomCase}>New Case</button>;
-      key_press = e => { if([" ", "Enter"].includes(e.key)) dispatchRandomCase(); }
+      training_controls = <button className="btn" title="spacebar" onClick={dispatchNewCase}>New Case</button>;
+      key_press = e => { if([" ", "Enter"].includes(e.key)) dispatchNewCase(); }
     }
-    else if(state[1] == "loading_data") {
+    else if(substate == "invalid_settings") {
+      training_text = "No cases :("
+      training_controls = <button className="btn btn-disabled">New Case</button>
+      error_bar = 
+        <div role="alert" className="alert alert-error alert-soft">
+          <span>No cases match the selected criteria.</span>
+        </div>;
+    }
+    else if(substate == "loading_data") {
       training_text = "Loading cases..."
       training_controls = <button className="btn btn-disabled">See Solutions</button>
     }
-    else if(state[1] == "awaiting_case") {
+    else if(substate == "awaiting_case") {
       training_text = "...";
       training_controls = <button className="btn btn-disabled">See Solutions</button>
     }
-    else if(state[1] == "training") {
-      training_setup = currentTraining.setup;
+    else if(substate == "training") {
+      training_setup = StandardTrainer.getCurrentTraining(state).setup;
       training_text = training_setup;
       training_controls = <button className="btn" title="spacebar" onClick={() => dispatch({type: 'see_solutions'})}>See Solutions</button>
       key_press = e => { if([" ", "Enter"].includes(e.key)) dispatch({type: 'see_solutions'}); }
     }
-    else if(state[1] == "showing_solution") {
-      training_setup = currentTraining.setup;
+    else if(substate == "showing_solution") {
+      const current_training = StandardTrainer.getCurrentTraining(state);
+      training_setup = current_training.setup;
       training_text = training_setup;
       training_controls = <div className="flex flex-row space-x-4">
-        <button className="btn" title="spacebar" onClick={dispatchRandomCase}>New Case</button>
+        <button className="btn" title="spacebar" onClick={dispatchNewCase}>New Case</button>
         <button className="btn" title="q" onClick={dispatchQueueCase}>Queue</button>
       </div>;
-      solutions = <SolutionDisplay solutions={currentTraining.case.solutions}></SolutionDisplay>;
+      solutions = <SolutionDisplay solutions={current_training.case.solutions}></SolutionDisplay>;
       key_press = e => { 
-        if([" ", "Enter"].includes(e.key)) dispatchRandomCase();
+        if([" ", "Enter"].includes(e.key)) dispatchNewCase();
         else if(e.key == "q") dispatchQueueCase();
       }
     }
@@ -100,17 +119,17 @@ function App() {
           <div className="drawer-content">
             <div className="navbar w-screen bg-base-100 shadow-sm">
               <div className="navbar-start">
-                {/* <div className="dropdown">
+                <div className="dropdown">
                   <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
                   </div>
                   <ul
                     tabIndex={0}
                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                    <li><a>DRM Trainer</a></li>
-                    <li><a>Soon?</a></li>
+                    <li><a>Standard</a></li>
+                    <li><a>Discard</a></li>
                   </ul>
-                </div> */}
+                </div>
               </div>
               <div className="navbar-center">
                 <a className="btn btn-ghost text-xl">drm doc</a>
@@ -139,19 +158,7 @@ function App() {
             <label htmlFor="settings-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
             <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
               <div className="flex flex-col items-center w-full space-y-4">
-                <RzpSelect defaultValue={training_params.drm}></RzpSelect>
-                <InputSlider label="Max Optimal" start={1} end={7} defaultValue={training_params.max_length} onChange={(event) => dispatch({type: 'set_training_params',
-                      settings: {
-                          max_length: event.target.value
-                      }})}></InputSlider>
-                <InputSlider label="Max Trigger" start={1} end={6} defaultValue={training_params.max_trigger} onChange={(event) => dispatch({type: 'set_training_params',
-                      settings: {
-                          max_trigger: event.target.value
-                      }})}></InputSlider>
-                <InputSlider label="Min Trigger" start={1} end={6} defaultValue={training_params.min_trigger} onChange={(event) => dispatch({type: 'set_training_params',
-                      settings: {
-                          min_trigger: event.target.value
-                      }})}></InputSlider>
+                {parameter_selection}
               </div>
             </ul>
           </div>
