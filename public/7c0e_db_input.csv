@@ -1,0 +1,672 @@
+case,364,70,30,0,,
+solution,364,8,0,8,R F2 D' R' U F2 U' R
+case,366,70,50,0,,
+solution,366,8,1,,B U D' F2 B U' D B
+case,367,70,30,0,,
+solution,367,9,1,,U F L2 D' F' U L2 U' F
+case,372,70,30,0,,
+solution,372,9,1,,U B R2 D' B' U' R2 U' B
+case,373,70,10,0,,
+solution,373,8,0,8,R' F2 B2 U2 D' R2 D' L
+case,375,70,30,0,,
+solution,375,8,0,8,L B2 D' L' U' B2 U' L
+case,390,70,50,0,,
+solution,390,8,1,,B' U' D F2 B U D' B
+case,391,70,30,0,,
+solution,391,8,0,8,R' U2 D R2 D F2 B2 L
+case,393,70,50,0,,
+solution,393,8,1,,F U2 D F' D R2 L2 B
+case,399,70,30,0,,
+solution,399,9,0,8,U L U2 D L' D F2 B2 R
+case,403,70,40,0,,
+solution,403,8,1,,F' U2 D' F2 D' R2 L2 B
+case,444,70,30,0,,
+solution,444,8,0,8,R' F2 D' R' U F2 U' R
+case,445,70,10,0,,
+solution,445,9,1,,U F' L2 D' F' U L2 U' F
+case,447,70,30,0,,
+solution,447,9,0,8,U2 R F2 B2 U L' U D2 L
+case,453,70,10,0,,
+solution,453,8,0,8,R F2 B2 U2 D' R2 D' L
+case,457,70,20,0,,
+solution,457,9,0,9,R U2 D' L2 U' F2 U B2 L
+case,471,70,30,0,,
+solution,471,8,0,8,R U2 D R2 D F2 B2 L
+case,475,70,40,0,,
+solution,475,8,1,,F U2 D' F2 D' R2 L2 B
+case,481,70,20,0,,
+solution,481,8,0,8,R U2 D' R D' F2 B2 L
+case,483,70,40,0,,
+solution,483,9,1,,U B U D' F2 B' U' D B
+case,484,70,20,0,,
+solution,484,8,0,8,L U D' R2 L' U' D L
+case,606,70,50,0,,
+solution,606,9,1,,U B' L2 U' B' D' L2 D' B
+case,607,70,30,0,,
+solution,607,8,1,,F U' R2 U F' D' R2 F
+case,609,70,50,0,,
+solution,609,9,0,8,U L U' F2 U L' D' F2 L
+case,615,70,30,0,,
+solution,615,8,0,8,L' F2 U' L' D' F2 D' L
+case,619,70,40,0,,
+solution,619,9,1,,R2 B R2 U B D R2 D B
+case,633,70,50,0,,
+solution,633,9,1,,R2 F U2 D F' D R2 L2 B
+case,637,70,60,0,,
+solution,637,9,1,,U2 B' R2 L2 U2 D B2 D F
+case,643,70,40,0,,
+solution,643,9,0,8,U L' F2 B2 U2 D L2 D R
+case,645,70,60,0,,
+solution,645,8,1,,F' R2 L2 U2 D F2 D B
+case,646,70,40,0,,
+solution,646,8,1,,F R2 D F U' R2 U F
+case,687,70,30,0,,
+solution,687,9,0,8,F2 L' F2 U' L' D' F2 D' L
+case,691,70,40,0,,
+solution,691,8,0,8,R U F2 U R D F2 R
+case,697,70,20,0,,
+solution,697,9,0,8,U R F2 U R D F2 D R
+case,699,70,40,0,,
+solution,699,8,1,,B R2 U B D R2 D B
+case,700,70,20,0,,
+solution,700,9,1,,U F U L2 U F D L2 F
+case,715,70,40,0,,
+solution,715,9,0,8,U R' B2 D R U B2 U R
+case,717,70,60,0,,
+solution,717,8,1,,F R2 L2 U2 D F2 D B
+case,718,70,40,0,,
+solution,718,8,1,,F' R2 D F U' R2 U F
+case,723,70,40,0,,
+solution,723,8,1,,B' L2 D B U L2 U B
+case,724,70,20,0,,
+solution,724,8,0,8,L' U' D R2 L' U D' L
+case,726,70,40,0,,
+solution,726,9,0,8,U R F2 B2 D' L U2 D' L
+case,850,70,40,0,,
+solution,850,9,0,8,U R F2 D' R' U' F2 U' R
+case,852,70,60,0,,
+solution,852,8,1,,F' R2 L2 U2 D' F2 D' B
+case,853,70,40,0,,
+solution,853,8,1,,F L2 D' F' U L2 U' F
+case,858,70,40,0,,
+solution,858,8,1,,B R2 D' B' U' R2 U' B
+case,859,70,20,0,,
+solution,859,8,0,8,R U D' R L2 U' D R
+case,861,70,40,0,,
+solution,861,9,0,8,U R' F2 B2 D L' U2 D L
+case,876,70,60,0,,
+solution,876,8,1,,F R2 L2 U2 D' F2 D' B
+case,877,70,40,0,,
+solution,877,8,1,,F' L2 D' F' U L2 U' F
+case,879,70,60,0,,
+solution,879,9,0,8,U R F2 B2 U L' U D2 L
+case,885,70,40,0,,
+solution,885,9,1,,U2 F R2 L2 U B' U D2 B
+case,889,70,50,0,,
+solution,889,9,1,,R2 B U' D2 B U' R2 L2 F
+case,930,70,40,0,,
+solution,930,8,1,,B' L2 U' B' D' L2 D' B
+case,931,70,20,0,,
+solution,931,9,0,8,U R' B2 U' R' D' B2 D' R
+case,933,70,40,0,,
+solution,933,8,0,8,L U' F2 U L' D' F2 L
+case,939,70,20,0,,
+solution,939,9,1,,U B U' L2 U B' D' L2 B
+case,943,70,30,0,,
+solution,943,9,0,8,F2 R F2 U R D F2 D R
+case,957,70,40,0,,
+solution,957,9,1,,R2 F' L2 D' F' U' L2 U' F
+case,961,70,50,0,,
+solution,961,9,1,,U F L2 U F D L2 D F
+case,967,70,30,0,,
+solution,967,8,0,8,R F2 U R D F2 D R
+case,969,70,50,0,,
+solution,969,9,0,8,U L U B2 U L D B2 L
+case,970,70,30,0,,
+solution,970,8,1,,F U L2 U F D L2 F
+case,1012,70,30,0,,
+solution,1012,8,0,8,R F2 D' R' U' F2 U' R
+case,1014,70,50,0,,
+solution,1014,8,1,,F U D' F B2 U' D F
+case,1015,70,30,0,,
+solution,1015,9,1,,U F L2 D' F' U' L2 U' F
+case,1020,70,30,0,,
+solution,1020,9,1,,U F' R2 L2 D B' U2 D B
+case,1021,70,10,0,,
+solution,1021,8,0,8,L' F2 B2 U2 D' L2 D' R
+case,1023,70,30,0,,
+solution,1023,8,0,8,R' F2 B2 D L' U2 D L
+case,1038,70,50,0,,
+solution,1038,9,0,8,U R U' B2 U R' D' B2 R
+case,1039,70,30,0,,
+solution,1039,8,0,8,R' B2 U' R' D' B2 D' R
+case,1041,70,50,0,,
+solution,1041,9,1,,U F' R2 U' F' D' R2 D' F
+case,1047,70,30,0,,
+solution,1047,8,1,,B U' L2 U B' D' L2 B
+case,1051,70,40,0,,
+solution,1051,9,1,,R2 B L2 D B U L2 U B
+case,1066,70,40,0,,
+solution,1066,9,0,8,U R F2 D' R' U F2 U' R
+case,1068,70,60,0,,
+solution,1068,8,1,,B' R2 L2 U2 D' B2 D' F
+case,1069,70,40,0,,
+solution,1069,8,1,,F L2 D' F' U' L2 U' F
+case,1074,70,40,0,,
+solution,1074,8,1,,F' R2 L2 D B' U2 D B
+case,1075,70,20,0,,
+solution,1075,8,0,8,L U D' R2 L U' D L
+case,1077,70,40,0,,
+solution,1077,9,0,8,U L B2 D' L' U' B2 U' L
+case,1084,70,30,0,,
+solution,1084,8,0,8,R U D2 R2 U F2 B2 L
+case,1086,70,50,0,,
+solution,1086,9,1,,R2 B U D2 B' U R2 L2 F
+case,1087,70,30,0,,
+solution,1087,9,0,8,F2 R' B2 U' R' D' B2 D' R
+case,1090,70,40,0,,
+solution,1090,9,1,,R2 B' L2 U' B' D' L2 D' B
+case,1094,70,50,0,,
+solution,1094,9,1,,R2 B U2 D B' D R2 L2 F
+case,1096,70,40,0,,
+solution,1096,8,1,,F U D2 F2 U R2 L2 B
+case,1098,70,40,0,,
+solution,1098,8,1,,B U D2 B2 U R2 L2 F
+case,1099,70,20,0,,
+solution,1099,9,0,9,R F2 B2 U2 L D L' D L
+case,1100,70,30,0,,
+solution,1100,9,0,8,F2 R' F2 D' R' U' F2 U' R
+case,1102,70,20,0,,
+solution,1102,9,0,9,R U2 D2 B2 L D R' D R
+case,1103,70,30,0,,
+solution,1103,8,0,8,L U D2 L2 U F2 B2 R
+case,1104,70,40,0,,
+solution,1104,9,1,,R2 B' R2 D' B' U' R2 U' B
+case,1110,70,50,0,,
+solution,1110,8,1,,F' U D' F B2 U' D F
+case,1111,70,30,0,,
+solution,1111,8,0,8,R' B2 U' R' D B2 D' R
+case,1113,70,50,0,,
+solution,1113,9,0,8,U L' B2 D' L' U' B2 U' L
+case,1116,70,60,0,,
+solution,1116,8,1,,B R2 L2 U F2 U D2 F
+case,1117,70,40,0,,
+solution,1117,8,1,,F' L2 D' F' U' L2 U' F
+case,1118,70,50,0,,
+solution,1118,9,1,,U F D' L2 D F' U' L2 F
+case,1120,70,40,0,,
+solution,1120,8,1,,F' U D2 F2 U R2 L2 B
+case,1121,70,50,0,,
+solution,1121,8,1,,F U D2 F' U R2 L2 B
+case,1122,70,60,0,,
+solution,1122,9,1,,U F' R2 U' F' D R2 D' F
+case,1125,70,40,0,,
+solution,1125,9,0,8,U L U D2 L' U F2 B2 R
+case,1127,70,30,0,,
+solution,1127,9,0,8,U2 R F2 B2 D L' U2 D L
+case,1128,70,40,0,,
+solution,1128,8,0,8,R D' F2 D R' U' F2 R
+case,1146,70,40,0,,
+solution,1146,8,1,,B' U2 D B2 D R2 L2 F
+case,1147,70,20,0,,
+solution,1147,8,0,8,R U2 D R' D F2 B2 L
+case,1149,70,40,0,,
+solution,1149,9,1,,U F U2 D F' D R2 L2 B
+case,1155,70,20,0,,
+solution,1155,8,0,8,L' U' D R2 L U D' L
+case,1159,70,30,0,,
+solution,1159,8,0,8,R' U2 D' R2 D' F2 B2 L
+case,1164,70,30,0,,
+solution,1164,8,0,8,R' U D2 R2 U F2 B2 L
+case,1165,70,10,0,,
+solution,1165,9,0,8,U R' B2 U' R' D B2 D' R
+case,1167,70,30,0,,
+solution,1167,8,1,,B D' R2 D B' U' R2 B
+case,1170,70,40,0,,
+solution,1170,8,1,,F R2 L2 D B' U2 D B
+case,1171,70,20,0,,
+solution,1171,9,1,,U F' L2 D' F' U' L2 U' F
+case,1172,70,30,0,,
+solution,1172,8,0,8,R' F2 D' R' U' F2 U' R
+case,1174,70,20,0,,
+solution,1174,8,0,8,R U D2 R' U F2 B2 L
+case,1175,70,30,0,,
+solution,1175,9,1,,U F U D2 F' U R2 L2 B
+case,1176,70,40,0,,
+solution,1176,9,1,,U2 F' R2 U' F' D R2 D' F
+case,1179,70,20,0,,
+solution,1179,8,0,8,R' U D' R L2 U' D R
+case,1181,70,10,0,,
+solution,1181,8,0,8,L F2 B2 U R2 U D2 R
+case,1182,70,20,0,,
+solution,1182,9,0,8,U R D' F2 D R' U' F2 R
+case,1191,70,30,0,,
+solution,1191,8,0,8,R B2 U' R' D B2 D' R
+case,1195,70,40,0,,
+solution,1195,9,1,,U F' L2 U F D L2 D F
+case,1197,70,40,0,,
+solution,1197,9,1,,U F R2 U' F' D' R2 D' F
+case,1199,70,30,0,,
+solution,1199,8,0,8,R B2 U' R' D' B2 D' R
+case,1200,70,40,0,,
+solution,1200,9,1,,U F R2 U' F' D R2 D' F
+case,1207,70,30,0,,
+solution,1207,8,0,8,R' F2 U R D F2 D R
+case,1211,70,40,0,,
+solution,1211,9,1,,U F' L2 U F D' L2 D F
+case,1213,70,30,0,,
+solution,1213,8,0,8,R' F2 U R D' F2 D R
+case,1254,70,50,0,,
+solution,1254,8,1,,B U2 D B' D R2 L2 F
+case,1255,70,30,0,,
+solution,1255,9,0,8,U R U2 D R' D F2 B2 L
+case,1257,70,50,0,,
+solution,1257,8,1,,F' U' D F B2 U D' F
+case,1263,70,30,0,,
+solution,1263,8,0,8,L' U2 D L2 D F2 B2 R
+case,1267,70,40,0,,
+solution,1267,8,1,,B' U2 D' B2 D' R2 L2 F
+case,1281,70,50,0,,
+solution,1281,9,1,,R2 F U D2 F' U R2 L2 B
+case,1285,70,60,0,,
+solution,1285,8,1,,B' R2 L2 U2 D B2 D F
+case,1291,70,40,0,,
+solution,1291,8,1,,F' R2 L2 U' B U' D2 B
+case,1293,70,60,0,,
+solution,1293,9,1,,U2 F' R2 L2 U2 D F2 D B
+case,1294,70,40,0,,
+solution,1294,9,0,8,U R' F2 B2 U2 D R2 D L
+case,1308,70,60,0,,
+solution,1308,9,0,8,U R' F2 D' R' U F2 U' R
+case,1309,70,40,0,,
+solution,1309,9,1,,U2 F' L2 D' F' U L2 U' F
+case,1311,70,60,0,,
+solution,1311,8,1,,B R2 L2 U2 D' B2 D' F
+case,1317,70,40,0,,
+solution,1317,8,1,,F R2 L2 U B' U D2 B
+case,1321,70,50,0,,
+solution,1321,9,1,,R2 B U2 D' B D' R2 L2 F
+case,1326,70,50,0,,
+solution,1326,8,1,,B U D2 B' U R2 L2 F
+case,1327,70,30,0,,
+solution,1327,9,0,8,U2 R' B2 U' R' D B2 D' R
+case,1329,70,50,0,,
+solution,1329,9,1,,U B D' R2 D B' U' R2 B
+case,1332,70,60,0,,
+solution,1332,9,1,,U F R2 L2 D B' U2 D B
+case,1333,70,40,0,,
+solution,1333,8,0,8,L D' B2 D L' U' B2 L
+case,1334,70,50,0,,
+solution,1334,9,0,8,U R' F2 D' R' U' F2 U' R
+case,1336,70,40,0,,
+solution,1336,9,0,8,U R U D2 R' U F2 B2 L
+case,1337,70,50,0,,
+solution,1337,8,1,,B' U D' F2 B U' D B
+case,1338,70,60,0,,
+solution,1338,8,1,,F R2 L2 U B2 U D2 B
+case,1341,70,40,0,,
+solution,1341,8,1,,B' U D2 B2 U R2 L2 F
+case,1343,70,30,0,,
+solution,1343,8,0,8,R F2 B2 D L' U2 D L
+case,1344,70,40,0,,
+solution,1344,8,1,,B' R2 D' B' U' R2 U' B
+case,1353,70,50,0,,
+solution,1353,8,1,,F U' D F B2 U D' F
+case,1357,70,60,0,,
+solution,1357,8,1,,B R2 L2 U D2 B2 U F
+case,1359,70,60,0,,
+solution,1359,8,1,,B' R2 L2 U F2 U D2 F
+case,1361,70,50,0,,
+solution,1361,8,1,,B U' D F2 B U D' B
+case,1362,70,60,0,,
+solution,1362,8,1,,F' R2 L2 U B2 U D2 B
+case,1369,70,50,0,,
+solution,1369,8,1,,F' U D' F' B2 U' D F
+case,1373,70,60,0,,
+solution,1373,8,1,,F R2 L2 U D2 F2 U B
+case,1375,70,50,0,,
+solution,1375,8,1,,B' U D' F2 B' U' D B
+case,1389,70,40,0,,
+solution,1389,8,1,,B U2 D B2 D R2 L2 F
+case,1393,70,50,0,,
+solution,1393,8,1,,F U D' F' B2 U' D F
+case,1399,70,30,0,,
+solution,1399,8,0,8,R U2 D' R2 D' F2 B2 L
+case,1401,70,50,0,,
+solution,1401,8,1,,B U2 D' B D' R2 L2 F
+case,1402,70,30,0,,
+solution,1402,9,0,8,U L U D' R2 L' U' D L
+case,1407,70,30,0,,
+solution,1407,9,0,8,U R B2 U' R' D B2 D' R
+case,1411,70,40,0,,
+solution,1411,8,1,,F R2 L2 U' B U' D2 B
+case,1413,70,40,0,,
+solution,1413,8,1,,F' R2 L2 U B' U D2 B
+case,1415,70,30,0,,
+solution,1415,9,0,8,U R B2 U' R' D' B2 D' R
+case,1416,70,40,0,,
+solution,1416,8,1,,B L2 U' B' D' L2 D' B
+case,1423,70,30,0,,
+solution,1423,9,0,8,U R' F2 U R D F2 D R
+case,1427,70,40,0,,
+solution,1427,8,1,,B' R2 U B D R2 D B
+case,1429,70,30,0,,
+solution,1429,9,0,8,U R' F2 U R D' F2 D R
+case,1435,70,40,0,,
+solution,1435,8,1,,B U F2 U D2 R2 L2 F
+case,1437,70,60,0,,
+solution,1437,9,1,,U2 B' R2 L2 U D2 B2 U F
+case,1438,70,40,0,,
+solution,1438,8,0,8,R D B2 D R U B2 R
+case,1441,70,50,0,,
+solution,1441,9,0,8,U R B2 D R U B2 U R
+case,1445,70,60,0,,
+solution,1445,8,1,,F' R2 L2 U D2 F2 U B
+case,1447,70,50,0,,
+solution,1447,8,1,,B U' D F2 B' U D' B
+case,1449,70,50,0,,
+solution,1449,8,1,,B U' D2 B U' R2 L2 F
+case,1450,70,30,0,,
+solution,1450,9,0,8,U L' F2 B2 U D2 L2 U R
+case,1451,70,40,0,,
+solution,1451,8,1,,B L2 D B U L2 U B
+case,1453,70,30,0,,
+solution,1453,8,0,8,R F2 U R D' F2 D R
+case,1454,70,40,0,,
+solution,1454,9,0,8,U R U' D R' L2 U D' R
+case,1455,70,50,0,,
+solution,1455,9,1,,U F D R2 D F U R2 F
+case,1578,70,40,0,,
+solution,1578,9,1,,U B U2 D B' D R2 L2 F
+case,1579,70,20,0,,
+solution,1579,8,0,8,R' U' D R L2 U D' R
+case,1581,70,40,0,,
+solution,1581,8,1,,F' U2 D F2 D R2 L2 B
+case,1587,70,20,0,,
+solution,1587,8,0,8,L U2 D L' D F2 B2 R
+case,1591,70,30,0,,
+solution,1591,8,0,8,L' U2 D' L2 D' F2 B2 R
+case,1605,70,40,0,,
+solution,1605,8,1,,F U2 D F2 D R2 L2 B
+case,1609,70,50,0,,
+solution,1609,8,1,,F U2 D' F D' R2 L2 B
+case,1615,70,30,0,,
+solution,1615,9,0,8,U R U D' R' L2 U' D R
+case,1617,70,50,0,,
+solution,1617,8,1,,B U D' F2 B' U' D B
+case,1618,70,30,0,,
+solution,1618,8,0,8,L U2 D' L2 D' F2 B2 R
+case,1659,70,20,0,,
+solution,1659,9,0,9,R F2 B2 D2 L U L' U L
+case,1663,70,30,0,,
+solution,1663,9,1,,U B' R2 L2 U2 D B2 D F
+case,1669,70,10,0,,
+solution,1669,8,0,8,L' F2 B2 U2 D L2 D R
+case,1671,70,30,0,,
+solution,1671,8,0,8,R' F2 B2 U' L U' D2 L
+case,1672,70,10,0,,
+solution,1672,9,0,8,U2 R' F2 B2 U2 D R2 D L
+case,1687,70,30,0,,
+solution,1687,8,0,8,R' B2 D R U B2 U R
+case,1689,70,50,0,,
+solution,1689,8,1,,B' U' D F2 B' U D' B
+case,1690,70,30,0,,
+solution,1690,9,1,,U F' R2 D F U R2 U F
+case,1695,70,30,0,,
+solution,1695,9,1,,U F R2 L2 D' B U2 D' B
+case,1696,70,10,0,,
+solution,1696,8,0,8,L F2 B2 U2 D L2 D R
+case,1698,70,30,0,,
+solution,1698,8,0,8,R F2 B2 D' L U2 D' L
+case,1740,70,30,0,,
+solution,1740,9,0,8,U2 R' F2 D' R' U F2 U' R
+case,1741,70,10,0,,
+solution,1741,8,0,8,L F2 B2 U2 D' L2 D' R
+case,1743,70,30,0,,
+solution,1743,8,0,8,R F2 B2 U L' U D2 L
+case,1749,70,10,0,,
+solution,1749,9,1,,U F R2 L2 U B' U D2 B
+case,1753,70,20,0,,
+solution,1753,9,0,9,R' F2 B2 D2 L' U' L U' L
+case,1767,70,30,0,,
+solution,1767,9,0,8,F2 L' B2 D' L' U' B2 U' L
+case,1771,70,40,0,,
+solution,1771,8,1,,F L2 U F D L2 D F
+case,1777,70,20,0,,
+solution,1777,9,1,,U B U R2 U B D R2 B
+case,1779,70,40,0,,
+solution,1779,8,0,8,L U B2 U L D B2 L
+case,1780,70,20,0,,
+solution,1780,9,0,8,U L B2 U L D B2 D L
+case,1794,70,40,0,,
+solution,1794,8,0,8,R U' B2 U R' D' B2 R
+case,1795,70,20,0,,
+solution,1795,9,1,,U F U' R2 U F' D' R2 F
+case,1797,70,40,0,,
+solution,1797,8,1,,F' R2 U' F' D' R2 D' F
+case,1803,70,20,0,,
+solution,1803,9,0,8,U L' F2 U' L' D' F2 D' L
+case,1807,70,30,0,,
+solution,1807,9,0,8,F2 R B2 D R U B2 U R
+case,1812,70,30,0,,
+solution,1812,9,1,,U B U D2 B' U R2 L2 F
+case,1813,70,10,0,,
+solution,1813,8,0,8,R F2 B2 U L2 U D2 L
+case,1815,70,30,0,,
+solution,1815,8,0,8,L' B2 D' L' U' B2 U' L
+case,1818,70,40,0,,
+solution,1818,9,1,,U2 F R2 L2 D B' U2 D B
+case,1819,70,20,0,,
+solution,1819,9,0,8,U L D' B2 D L' U' B2 L
+case,1820,70,30,0,,
+solution,1820,8,1,,F D' L2 D F' U' L2 F
+case,1822,70,20,0,,
+solution,1822,8,0,8,L' U D' R2 L U' D L
+case,1823,70,30,0,,
+solution,1823,8,0,8,L' U D2 L2 U F2 B2 R
+case,1824,70,40,0,,
+solution,1824,8,1,,F' R2 U' F' D R2 D' F
+case,1827,70,20,0,,
+solution,1827,8,0,8,L U D2 L' U F2 B2 R
+case,1829,70,10,0,,
+solution,1829,9,0,8,U R F2 B2 D L' U2 D L
+case,1830,70,20,0,,
+solution,1830,9,1,,U B' R2 D' B' U' R2 U' B
+case,1839,70,30,0,,
+solution,1839,9,0,8,U L F2 U' L' D' F2 D' L
+case,1843,70,40,0,,
+solution,1843,8,1,,F' L2 U F D L2 D F
+case,1845,70,40,0,,
+solution,1845,8,1,,F R2 U' F' D' R2 D' F
+case,1847,70,30,0,,
+solution,1847,9,0,8,U R' F2 B2 U L' U D2 L
+case,1848,70,40,0,,
+solution,1848,8,1,,F R2 U' F' D R2 D' F
+case,1855,70,30,0,,
+solution,1855,9,0,8,U R F2 B2 U' L U' D2 L
+case,1859,70,40,0,,
+solution,1859,8,1,,F' L2 U F D' L2 D F
+case,1861,70,30,0,,
+solution,1861,9,0,8,U L' B2 U L D B2 D L
+case,1875,70,20,0,,
+solution,1875,9,0,9,R U2 D2 F2 L U R' U R
+case,1879,70,30,0,,
+solution,1879,8,0,8,R B2 D R U' B2 U R
+case,1885,70,10,0,,
+solution,1885,9,0,8,U2 L' F2 B2 U2 D L2 D R
+case,1887,70,30,0,,
+solution,1887,9,1,,U F' R2 L2 U2 D F2 D B
+case,1888,70,10,0,,
+solution,1888,8,0,8,R' F2 B2 U2 D R2 D L
+case,1893,70,10,0,,
+solution,1893,8,0,8,R' F2 B2 U L2 U D2 L
+case,1897,70,20,0,,
+solution,1897,8,0,8,L' U D' R2 L' U' D L
+case,1899,70,20,0,,
+solution,1899,8,0,8,R U' D R L2 U D' R
+case,1901,70,10,0,,
+solution,1901,8,0,8,L' F2 B2 U R2 U D2 R
+case,1902,70,20,0,,
+solution,1902,8,0,8,L U' D R2 L U D' L
+case,1909,70,10,0,,
+solution,1909,8,0,8,L F2 B2 U D2 L2 U R
+case,1913,70,20,0,,
+solution,1913,8,0,8,R' U D' R' L2 U' D R
+case,1915,70,10,0,,
+solution,1915,8,0,8,R F2 B2 U D2 R2 U L
+case,1921,70,20,0,,
+solution,1921,8,0,8,R U' D2 R U' F2 B2 L
+case,1923,70,40,0,,
+solution,1923,9,1,,U B' R2 L2 U D2 B2 U F
+case,1924,70,20,0,,
+solution,1924,9,1,,U F R2 D F U R2 U F
+case,1927,70,30,0,,
+solution,1927,8,0,8,R B2 D R U B2 U R
+case,1931,70,40,0,,
+solution,1931,8,1,,F L2 U F D' L2 D F
+case,1933,70,30,0,,
+solution,1933,8,0,8,R U L2 U D2 F2 B2 L
+case,1935,70,30,0,,
+solution,1935,9,1,,U F U' D F' B2 U D' F
+case,1936,70,10,0,,
+solution,1936,8,0,8,L' F2 B2 U D2 L2 U R
+case,1937,70,20,0,,
+solution,1937,9,0,8,U L D F2 D L U F2 L
+case,1939,70,10,0,,
+solution,1939,9,0,8,U2 R' F2 B2 U D2 R2 U L
+case,1940,70,20,0,,
+solution,1940,8,0,8,R U' D R' L2 U D' R
+case,1941,70,30,0,,
+solution,1941,8,1,,F D R2 D F U R2 F
+case,1983,70,30,0,,
+solution,1983,8,0,8,L U2 D L2 D F2 B2 R
+case,1987,70,40,0,,
+solution,1987,9,1,,U F U D' F' B2 U' D F
+case,1993,70,20,0,,
+solution,1993,8,0,8,R U D' R' L2 U' D R
+case,1995,70,40,0,,
+solution,1995,8,1,,B U2 D' B2 D' R2 L2 F
+case,1996,70,20,0,,
+solution,1996,8,0,8,L U2 D' L D' F2 B2 R
+case,2011,70,40,0,,
+solution,2011,9,0,8,U R' B2 D R U' B2 U R
+case,2013,70,60,0,,
+solution,2013,8,1,,B R2 L2 U2 D B2 D F
+case,2014,70,40,0,,
+solution,2014,8,1,,F' R2 D F U R2 U F
+case,2019,70,40,0,,
+solution,2019,8,1,,F R2 L2 D' B U2 D' B
+case,2020,70,20,0,,
+solution,2020,8,0,8,R' U' D R' L2 U D' R
+case,2022,70,40,0,,
+solution,2022,9,0,8,U L' F2 D L U F2 U L
+case,2037,70,40,0,,
+solution,2037,9,1,,R2 F' R2 U' F' D' R2 D' F
+case,2041,70,50,0,,
+solution,2041,9,0,8,U R U F2 U R D F2 R
+case,2047,70,30,0,,
+solution,2047,8,1,,B U R2 U B D R2 B
+case,2049,70,50,0,,
+solution,2049,9,1,,U B R2 U B D R2 D B
+case,2050,70,30,0,,
+solution,2050,8,0,8,L B2 U L D B2 D L
+case,2055,70,30,0,,
+solution,2055,8,0,8,L F2 U' L' D' F2 D' L
+case,2059,70,40,0,,
+solution,2059,9,1,,U F R2 L2 U' B U' D2 B
+case,2061,70,40,0,,
+solution,2061,9,1,,U F' R2 L2 U B' U D2 B
+case,2063,70,30,0,,
+solution,2063,8,0,8,R' F2 B2 U L' U D2 L
+case,2064,70,40,0,,
+solution,2064,9,1,,U B L2 U' B' D' L2 D' B
+case,2071,70,30,0,,
+solution,2071,8,0,8,R F2 B2 U' L U' D2 L
+case,2075,70,40,0,,
+solution,2075,9,1,,U B' R2 U B D R2 D B
+case,2077,70,30,0,,
+solution,2077,8,0,8,L' B2 U L D B2 D L
+case,2083,70,40,0,,
+solution,2083,9,0,8,U L U' D R2 L' U D' L
+case,2085,70,60,0,,
+solution,2085,8,1,,B' R2 L2 U D2 B2 U F
+case,2086,70,40,0,,
+solution,2086,8,1,,F R2 D F U R2 U F
+case,2089,70,50,0,,
+solution,2089,9,1,,U B D L2 D B U L2 B
+case,2093,70,60,0,,
+solution,2093,9,1,,U2 F' R2 L2 U D2 F2 U B
+case,2095,70,50,0,,
+solution,2095,8,1,,F U' D2 F U' R2 L2 B
+case,2097,70,50,0,,
+solution,2097,8,1,,F U' D F' B2 U D' F
+case,2098,70,30,0,,
+solution,2098,8,0,8,R' F2 B2 D' L U2 D' L
+case,2099,70,40,0,,
+solution,2099,8,0,8,L D F2 D L U F2 L
+case,2101,70,30,0,,
+solution,2101,9,0,8,U R' F2 B2 U D2 R2 U L
+case,2102,70,40,0,,
+solution,2102,8,1,,F U B2 U D2 R2 L2 B
+case,2103,70,50,0,,
+solution,2103,9,0,8,U L F2 D L U F2 U L
+case,2119,70,30,0,,
+solution,2119,8,0,8,R' B2 D R U' B2 U R
+case,2121,70,50,0,,
+solution,2121,8,1,,F' U' D F' B2 U D' F
+case,2122,70,30,0,,
+solution,2122,9,1,,U F' R2 D F U' R2 U F
+case,2127,70,30,0,,
+solution,2127,9,1,,U B' L2 D B U L2 U B
+case,2128,70,10,0,,
+solution,2128,8,0,8,R F2 B2 U2 D R2 D L
+case,2130,70,30,0,,
+solution,2130,8,0,8,L' F2 D L U F2 U L
+case,2137,70,20,0,,
+solution,2137,8,0,8,L U' D R2 L' U D' L
+case,2139,70,40,0,,
+solution,2139,8,1,,F' R2 L2 D' B U2 D' B
+case,2140,70,20,0,,
+solution,2140,9,0,8,U R D B2 D R U B2 R
+case,2143,70,30,0,,
+solution,2143,8,1,,B D L2 D B U L2 B
+case,2147,70,40,0,,
+solution,2147,9,1,,U F' R2 L2 U D2 F2 U B
+case,2149,70,30,0,,
+solution,2149,9,1,,U B U' D F2 B' U D' B
+case,2151,70,30,0,,
+solution,2151,8,0,8,L U R2 U D2 F2 B2 R
+case,2152,70,10,0,,
+solution,2152,9,0,8,U2 L' F2 B2 U D2 L2 U R
+case,2153,70,20,0,,
+solution,2153,9,1,,U B L2 D B U L2 U B
+case,2155,70,10,0,,
+solution,2155,8,0,8,R' F2 B2 U D2 R2 U L
+case,2156,70,20,0,,
+solution,2156,8,0,8,L U' D2 L U' F2 B2 R
+case,2157,70,30,0,,
+solution,2157,8,0,8,L F2 D L U F2 U L
+case,2163,70,40,0,,
+solution,2163,8,1,,B' U F2 U D2 R2 L2 F
+case,2164,70,20,0,,
+solution,2164,9,0,9,R U R2 U2 D B2 D F2 L
+case,2166,70,40,0,,
+solution,2166,9,1,,R2 F R2 D F U R2 U F
+case,2169,70,50,0,,
+solution,2169,9,1,,R2 F U2 D' F D' R2 L2 B
+case,2170,70,30,0,,
+solution,2170,9,0,8,F2 L B2 U L D B2 D L
+case,2171,70,40,0,,
+solution,2171,9,1,,R2 F L2 U F D L2 D F
+case,2173,70,30,0,,
+solution,2173,8,0,8,R' U L2 U D2 F2 B2 L
+case,2174,70,40,0,,
+solution,2174,8,1,,F' U B2 U D2 R2 L2 B
+case,2175,70,50,0,,
+solution,2175,9,1,,R2 F U' D2 F U' R2 L2 B
+case,2178,70,30,0,,
+solution,2178,8,0,8,L' U R2 U D2 F2 B2 R
+case,2180,70,20,0,,
+solution,2180,9,0,9,R' F2 B2 U2 L' D' L D' L
+case,2181,70,30,0,,
+solution,2181,9,0,8,F2 L F2 D L U F2 U L

@@ -1,0 +1,688 @@
+case,3,30,10,0,,
+solution,3,7,1,,F D2 F' D' F D' F
+solution,3,7,1,,B U F' U' B U F
+solution,3,7,1,,B R2 B' D' F D' F
+solution,3,7,0,7,R' D' R D' R' D2 R
+solution,3,7,0,7,R' D' R2 D R2 D' R
+solution,3,7,0,7,R' D L D' R D L
+solution,3,7,0,7,R' D' R D' L' F2 L
+case,7,30,20,0,,
+solution,7,7,1,,B D B' D F L2 F
+solution,7,7,1,,B D' F' D B' D' F
+solution,7,7,1,,B D B2 D' B2 D B
+solution,7,7,1,,B D B' D B D2 B
+solution,7,7,0,7,R' U' L U R' U' L
+solution,7,7,0,7,R' B2 R D L' D L
+solution,7,7,0,7,L' D2 L D L' D L
+case,9,30,20,0,,
+solution,9,7,1,,B' D F D' B D F
+solution,9,7,1,,B' D' B D' F' R2 F
+solution,9,7,1,,B' D' B D' B' D2 B
+solution,9,7,1,,B' D' B2 D B2 D' B
+solution,9,7,0,7,R D2 R' D' R D' R
+solution,9,7,0,7,L U R' U' L U R
+solution,9,7,0,7,L B2 L' D' R D' R
+case,11,30,10,0,,
+solution,11,7,1,,F U B' U' F U B
+solution,11,7,1,,F L2 F' D' B D' B
+solution,11,7,1,,B D2 B' D' B D' B
+solution,11,7,0,7,L' D R D' L D R
+solution,11,7,0,7,L' D' L D' R' B2 R
+solution,11,7,0,7,L' D' L D' L' D2 L
+solution,11,7,0,7,L' D' L2 D L2 D' L
+case,12,30,20,0,,
+solution,12,7,1,,F' D' F D' F' D2 F
+solution,12,7,1,,F' D' F2 D F2 D' F
+solution,12,7,1,,F' D B D' F D B
+solution,12,7,1,,F' D' F D' B' L2 B
+solution,12,7,0,7,R U L' U' R U L
+solution,12,7,0,7,R F2 R' D' L D' L
+solution,12,7,0,7,L D2 L' D' L D' L
+case,19,30,10,0,,
+solution,19,7,1,,F' D2 F D F' D F
+solution,19,7,1,,B' U' F U B' U' F
+solution,19,7,1,,B' L2 B D F' D F
+solution,19,7,0,7,L D L' D R F2 R
+solution,19,7,0,7,L D' R' D L' D' R
+solution,19,7,0,7,L D L2 D' L2 D L
+solution,19,7,0,7,L D L' D L D2 L
+case,23,30,20,0,,
+solution,23,7,1,,F D F2 D' F2 D F
+solution,23,7,1,,F D F' D F D2 F
+solution,23,7,1,,F D F' D B R2 B
+solution,23,7,1,,F D' B' D F' D' B
+solution,23,7,0,7,R' D2 R D R' D R
+solution,23,7,0,7,L' U' R U L' U' R
+solution,23,7,0,7,L' F2 L D R' D R
+case,25,30,10,0,,
+solution,25,7,1,,F' U' B U F' U' B
+solution,25,7,1,,F' R2 F D B' D B
+solution,25,7,1,,B' D2 B D B' D B
+solution,25,7,0,7,R D R2 D' R2 D R
+solution,25,7,0,7,R D R' D R D2 R
+solution,25,7,0,7,R D R' D L B2 L
+solution,25,7,0,7,R D' L' D R' D' L
+case,27,30,10,0,,
+solution,27,7,1,,F' D2 F' D' F D' F
+solution,27,7,1,,B' D F' D' B D F
+solution,27,7,1,,B' L2 B' U' F U' F
+case,29,30,00,0,,
+solution,29,7,0,7,R F2 R' D L D L
+solution,29,7,0,7,R' B2 R' U L U L
+solution,29,7,0,7,L D2 L' D L D L
+solution,29,7,0,7,L' D2 L' D L D L
+case,30,30,10,0,,
+solution,30,7,1,,F D F D F' D2 F
+solution,30,7,1,,F' D F D F' D2 F
+solution,30,7,1,,F D F D B' L2 B
+solution,30,7,1,,F' D F D B' L2 B
+solution,30,7,0,7,R U' R U' R' U2 R
+solution,30,7,0,7,R U' R2 U R2 U' R
+solution,30,7,0,7,R U L U' R U L
+solution,30,7,0,7,R U' R U' L' B2 L
+case,35,30,10,0,,
+solution,35,7,1,,F U B' U B' U F
+solution,35,7,1,,F U B' U' F' U B
+solution,35,7,1,,B' U D' B U' D B
+case,36,30,20,0,,
+solution,36,7,1,,F' D B D B' D F
+solution,36,7,1,,F' D B D' F' D B
+solution,36,7,1,,B' D F D F D B
+solution,36,7,1,,B' D F' D F D B
+solution,36,7,0,7,R U' D R U D' R
+solution,36,7,0,7,L' U R' U' L' U R
+solution,36,7,0,7,L' U R' U R' U L
+case,38,30,10,0,,
+solution,38,7,0,7,R U L U L U R
+solution,38,7,0,7,R U L' U L U R
+solution,38,7,0,7,L D R D' L' D R
+solution,38,7,0,7,L D R D R' D L
+case,55,30,20,0,,
+solution,55,7,1,,B' U B' U F R2 F
+solution,55,7,1,,B' U' F' U B' U' F
+solution,55,7,1,,B' U B2 U' B2 U B
+solution,55,7,1,,B' U B' U B U2 B
+solution,55,7,0,7,L D' L' D' R F2 R
+solution,55,7,0,7,L' D' L' D' R F2 R
+solution,55,7,0,7,L D' L' D' L D2 L
+solution,55,7,0,7,L' D' L' D' L D2 L
+case,59,30,30,0,,
+solution,59,7,1,,F D2 F D' F' D' F
+solution,59,7,1,,F' D2 F D' F' D' F
+solution,59,7,1,,B R2 B U' F' U' F
+solution,59,7,1,,B' L2 B D' F' D' F
+case,61,30,20,0,,
+solution,61,7,0,7,R D' L D R' D' L
+solution,61,7,0,7,R F2 R U L' U L
+solution,61,7,0,7,L D2 L D L' D L
+case,71,30,20,0,,
+solution,71,7,1,,F' D' B' D' B D' F
+solution,71,7,1,,F' D' B' D F D' B
+solution,71,7,1,,B' U' F U' F' U' B
+solution,71,7,1,,B' U' F' U' F' U' B
+case,73,30,10,0,,
+solution,73,7,1,,F U' B U' B U' F
+solution,73,7,1,,F U' B U F U' B
+solution,73,7,1,,B' U D' B' U' D B
+solution,73,7,0,7,R D' L D' L' D' R
+solution,73,7,0,7,R D' L' D' L' D' R
+solution,73,7,0,7,L D' R' D L D' R
+solution,73,7,0,7,L D' R' D' R D' L
+case,77,30,20,0,,
+solution,77,7,0,7,R U' D R' U D' R
+solution,77,7,0,7,L' U' R U L U' R
+solution,77,7,0,7,L' U' R U' R U' L
+case,81,30,20,0,,
+solution,81,7,1,,B U F U' B U F
+solution,81,7,1,,B U' B U' F' L2 F
+solution,81,7,1,,B U' B U' B' U2 B
+solution,81,7,1,,B U' B2 U B2 U' B
+solution,81,7,0,7,R D R D R' D2 R
+solution,81,7,0,7,R' D R D R' D2 R
+solution,81,7,0,7,R D R D L' F2 L
+solution,81,7,0,7,R' D R D L' F2 L
+case,83,30,10,0,,
+solution,83,7,1,,F' U B' U B' U F
+solution,83,7,1,,F' U B' U' F' U B
+solution,83,7,1,,B U' D B U D' B
+solution,83,7,0,7,R' D L D L' D R
+solution,83,7,0,7,R' D L D' R' D L
+solution,83,7,0,7,L' D R D R D L
+solution,83,7,0,7,L' D R' D R D L
+case,84,30,20,0,,
+solution,84,7,1,,F D B D B' D F
+solution,84,7,1,,F D B D' F' D B
+solution,84,7,1,,B U F U F U B
+solution,84,7,1,,B U F' U F U B
+case,89,30,20,0,,
+solution,89,7,0,7,R' D2 R' D' R D' R
+solution,89,7,0,7,L' D R' D' L D R
+solution,89,7,0,7,L' F2 L' U' R U' R
+case,90,30,30,0,,
+solution,90,7,1,,F D2 F' D F D F
+solution,90,7,1,,F' D2 F' D F D F
+solution,90,7,1,,B R2 B' D F D F
+solution,90,7,1,,B' L2 B' U F U F
+case,92,30,20,0,,
+solution,92,7,0,7,R U L' U L' U R
+solution,92,7,0,7,R U L' U' R' U L
+solution,92,7,0,7,L' U D' L U' D L
+case,107,30,10,0,,
+solution,107,7,1,,F' U B' U' F U B
+solution,107,7,1,,F' L2 F' D' B D' B
+solution,107,7,1,,B' U2 B' U' B U' B
+case,108,30,20,0,,
+solution,108,7,1,,F D' F D' F' D2 F
+solution,108,7,1,,F D' F2 D F2 D' F
+solution,108,7,1,,F D B D' F D B
+solution,108,7,1,,F D' F D' B' L2 B
+solution,108,7,0,7,R U R U R' U2 R
+solution,108,7,0,7,R' U R U R' U2 R
+solution,108,7,0,7,R U R U L' B2 L
+solution,108,7,0,7,R' U R U L' B2 L
+case,110,30,10,0,,
+solution,110,7,0,7,R U L U L' U R
+solution,110,7,0,7,R U L U' R' U L
+solution,110,7,0,7,L D R D R D L
+solution,110,7,0,7,L D R' D R D L
+case,116,30,20,0,,
+solution,116,7,0,7,R' U' D R U D' R
+solution,116,7,0,7,L D R' D' L' D R
+solution,116,7,0,7,L D R' D R' D L
+case,163,30,10,0,,
+solution,163,7,1,,F D2 F D F' D F
+solution,163,7,1,,B D' F D B' D' F
+solution,163,7,1,,B R2 B U F' U F
+case,167,30,20,0,,
+solution,167,7,1,,F D' B' D' B D' F
+solution,167,7,1,,F D' B' D F D' B
+solution,167,7,1,,B D' F D' F' D' B
+solution,167,7,1,,B D' F' D' F' D' B
+solution,167,7,0,7,R U' L U' L U' R
+solution,167,7,0,7,R U' L U R U' L
+solution,167,7,0,7,L' U D' L' U' D L
+case,169,30,10,0,,
+solution,169,7,1,,F' U' B U' B U' F
+solution,169,7,1,,F' U' B U F U' B
+solution,169,7,1,,B U' D B' U D' B
+case,179,30,10,0,,
+solution,179,7,1,,F D' F' D' F D2 F
+solution,179,7,1,,F' D' F' D' F D2 F
+solution,179,7,1,,F D' F' D' B R2 B
+solution,179,7,1,,F' D' F' D' B R2 B
+solution,179,7,0,7,L' U L' U R B2 R
+solution,179,7,0,7,L' U' R' U L' U' R
+solution,179,7,0,7,L' U L2 U' L2 U L
+solution,179,7,0,7,L' U L' U L U2 L
+case,181,30,00,0,,
+solution,181,7,0,7,R D2 R D' R' D' R
+solution,181,7,0,7,R' D2 R D' R' D' R
+solution,181,7,0,7,L B2 L U' R' U' R
+solution,181,7,0,7,L' F2 L D' R' D' R
+case,185,30,10,0,,
+solution,185,7,0,7,R' D' L' D' L D' R
+solution,185,7,0,7,R' D' L' D R D' L
+solution,185,7,0,7,L' U' R U' R' U' L
+solution,185,7,0,7,L' U' R' U' R' U' L
+case,215,30,20,0,,
+solution,215,7,1,,F' D F2 D' F2 D F
+solution,215,7,1,,F' D F' D F D2 F
+solution,215,7,1,,F' D F' D B R2 B
+solution,215,7,1,,F' D' B' D F' D' B
+solution,215,7,0,7,L U' L' U' R B2 R
+solution,215,7,0,7,L' U' L' U' R B2 R
+solution,215,7,0,7,L U' L' U' L U2 L
+solution,215,7,0,7,L' U' L' U' L U2 L
+case,217,30,10,0,,
+solution,217,7,1,,F U' B U F' U' B
+solution,217,7,1,,F R2 F D B' D B
+solution,217,7,1,,B U2 B U B' U B
+case,221,30,20,0,,
+solution,221,7,0,7,R' D' L D' L D' R
+solution,221,7,0,7,R' D' L D R D' L
+solution,221,7,0,7,L U D' L' U' D L
+case,233,30,10,0,,
+solution,233,7,0,7,R' D' L D' L' D' R
+solution,233,7,0,7,R' D' L' D' L' D' R
+solution,233,7,0,7,L' U' R' U L U' R
+solution,233,7,0,7,L' U' R' U' R U' L
+case,243,30,10,0,,
+solution,243,7,0,7,R D L D L' D R
+solution,243,7,0,7,R D L D' R' D L
+solution,243,7,0,7,L U R U R U L
+solution,243,7,0,7,L U R' U R U L
+case,245,30,00,0,,
+solution,245,7,0,7,R D2 R' D R D R
+solution,245,7,0,7,R' D2 R' D R D R
+solution,245,7,0,7,L B2 L' D R D R
+solution,245,7,0,7,L' F2 L' U R U R
+case,246,30,10,0,,
+solution,246,7,1,,F' U D' F U' D F
+solution,246,7,1,,B U F' U' B' U F
+solution,246,7,1,,B U F' U F' U B
+case,251,30,10,0,,
+solution,251,7,1,,B D B D F' R2 F
+solution,251,7,1,,B' D B D F' R2 F
+solution,251,7,1,,B D B D B' D2 B
+solution,251,7,1,,B' D B D B' D2 B
+solution,251,7,0,7,L U R U' L U R
+solution,251,7,0,7,L U' L U' R' F2 R
+solution,251,7,0,7,L U' L U' L' U2 L
+solution,251,7,0,7,L U' L2 U L2 U' L
+case,252,30,20,0,,
+solution,252,7,1,,F' D B D B D F
+solution,252,7,1,,F' D B' D B D F
+solution,252,7,1,,B' D F D' B' D F
+solution,252,7,1,,B' D F D F' D B
+solution,252,7,0,7,R' U L' U L' U R
+solution,252,7,0,7,R' U L' U' R' U L
+solution,252,7,0,7,L U' D L U D' L
+case,254,30,10,0,,
+solution,254,7,1,,F' D B' D' F D B
+solution,254,7,1,,F' R2 F' U' B U' B
+solution,254,7,1,,B' D2 B' D' B D' B
+case,269,30,00,0,,
+solution,269,7,0,7,R B2 R' U L U L
+solution,269,7,0,7,R' F2 R' D L D L
+solution,269,7,0,7,L U2 L' U L U L
+solution,269,7,0,7,L' U2 L' U L U L
+case,270,30,10,0,,
+solution,270,7,1,,F U D' F U' D F
+solution,270,7,1,,B' D F' D' B' D F
+solution,270,7,1,,B' D F' D F' D B
+solution,270,7,0,7,R' U L U L' U R
+solution,270,7,0,7,R' U L U' R' U L
+solution,270,7,0,7,L' U R U R U L
+solution,270,7,0,7,L' U R' U R U L
+case,272,30,00,0,,
+solution,272,7,0,7,R U2 R' U R U R
+solution,272,7,0,7,R' U2 R' U R U R
+solution,272,7,0,7,L F2 L' U R U R
+solution,272,7,0,7,L' B2 L' D R D R
+case,278,30,10,0,,
+solution,278,7,1,,F' D B' D B' D F
+solution,278,7,1,,F' D B' D' F' D B
+solution,278,7,1,,B U D' B U' D B
+solution,278,7,0,7,R' U L U L U R
+solution,278,7,0,7,R' U L' U L U R
+solution,278,7,0,7,L' U R U' L' U R
+solution,278,7,0,7,L' U R U R' U L
+case,323,30,10,0,,
+solution,323,7,1,,B U B U F' L2 F
+solution,323,7,1,,B' U B U F' L2 F
+solution,323,7,1,,B U B U B' U2 B
+solution,323,7,1,,B' U B U B' U2 B
+solution,323,7,0,7,R D' R D' R' D2 R
+solution,323,7,0,7,R D' R2 D R2 D' R
+solution,323,7,0,7,R D L D' R D L
+solution,323,7,0,7,R D' R D' L' F2 L
+case,324,30,20,0,,
+solution,324,7,1,,F D B D B D F
+solution,324,7,1,,F D B' D B D F
+solution,324,7,1,,B U F U' B' U F
+solution,324,7,1,,B U F U F' U B
+case,326,30,10,0,,
+solution,326,7,1,,F D B' D B' D F
+solution,326,7,1,,F D B' D' F' D B
+solution,326,7,1,,B' U' D B U D' B
+case,332,30,20,0,,
+solution,332,7,0,7,R' U L' U' R U L
+solution,332,7,0,7,R' F2 R' D' L D' L
+solution,332,7,0,7,L' U2 L' U' L U' L
+case,350,30,10,0,,
+solution,350,7,1,,F D B' D' F D B
+solution,350,7,1,,F R2 F' U' B U' B
+solution,350,7,1,,B U2 B' U' B U' B
+solution,350,7,0,7,R' U' R U' R' U2 R
+solution,350,7,0,7,R' U' R2 U R2 U' R
+solution,350,7,0,7,R' U L U' R U L
+solution,350,7,0,7,R' U' R U' L' B2 L
+case,487,30,20,0,,
+solution,487,7,0,7,R' U' L U' L U' R
+solution,487,7,0,7,R' U' L U R U' L
+solution,487,7,0,7,L U' D L' U D' L
+case,491,30,30,0,,
+solution,491,7,1,,F L2 F U' B' U' B
+solution,491,7,1,,F' R2 F D' B' D' B
+solution,491,7,1,,B D2 B D' B' D' B
+solution,491,7,1,,B' D2 B D' B' D' B
+case,493,30,20,0,,
+solution,493,7,1,,F' U' B U' B' U' F
+solution,493,7,1,,F' U' B' U' B' U' F
+solution,493,7,1,,B' D' F' D B D' F
+solution,493,7,1,,B' D' F' D' F D' B
+case,503,30,20,0,,
+solution,503,7,0,7,R D2 R D R' D R
+solution,503,7,0,7,L D' R D L' D' R
+solution,503,7,0,7,L B2 L U R' U R
+case,505,30,10,0,,
+solution,505,7,1,,F' U D' F' U' D F
+solution,505,7,1,,B U' F U B U' F
+solution,505,7,1,,B U' F U' F U' B
+solution,505,7,0,7,R D' L' D' L D' R
+solution,505,7,0,7,R D' L' D R D' L
+solution,505,7,0,7,L D' R D' R' D' L
+solution,505,7,0,7,L D' R' D' R' D' L
+case,509,30,20,0,,
+solution,509,7,1,,F' U F2 U' F2 U F
+solution,509,7,1,,F' U F' U F U2 F
+solution,509,7,1,,F' U F' U B L2 B
+solution,509,7,1,,F' U' B' U F' U' B
+solution,509,7,0,7,R D' R' D' R D2 R
+solution,509,7,0,7,R' D' R' D' R D2 R
+solution,509,7,0,7,R D' R' D' L B2 L
+solution,509,7,0,7,R' D' R' D' L B2 L
+case,539,30,30,0,,
+solution,539,7,1,,F R2 F D' B' D' B
+solution,539,7,1,,F' L2 F U' B' U' B
+solution,539,7,1,,B U2 B U' B' U' B
+solution,539,7,1,,B' U2 B U' B' U' B
+case,541,30,20,0,,
+solution,541,7,1,,F U' B U' B' U' F
+solution,541,7,1,,F U' B' U' B' U' F
+solution,541,7,1,,B U' F' U B U' F
+solution,541,7,1,,B U' F' U' F U' B
+solution,541,7,0,7,R D' L D' L D' R
+solution,541,7,0,7,R D' L D R D' L
+solution,541,7,0,7,L' U' D L' U D' L
+case,545,30,30,0,,
+solution,545,7,1,,F U2 F U' F' U' F
+solution,545,7,1,,F' U2 F U' F' U' F
+solution,545,7,1,,B L2 B D' F' D' F
+solution,545,7,1,,B' R2 B U' F' U' F
+case,557,30,20,0,,
+solution,557,7,1,,F U' B' U' B U' F
+solution,557,7,1,,F U' B' U F U' B
+solution,557,7,1,,B U' F U' F' U' B
+solution,557,7,1,,B U' F' U' F' U' B
+solution,557,7,0,7,R' U' D R' U D' R
+solution,557,7,0,7,L D' R D L D' R
+solution,557,7,0,7,L D' R D' R D' L
+case,647,30,20,0,,
+solution,647,7,0,7,R U' L U R' U' L
+solution,647,7,0,7,R B2 R D L' D L
+solution,647,7,0,7,L U2 L U L' U L
+case,649,30,10,0,,
+solution,649,7,1,,F U D' F' U' D F
+solution,649,7,1,,B' D' F D B D' F
+solution,649,7,1,,B' D' F D' F D' B
+case,653,30,20,0,,
+solution,653,7,1,,F' U' B' U' B U' F
+solution,653,7,1,,F' U' B' U F U' B
+solution,653,7,1,,B' D' F D' F' D' B
+solution,653,7,1,,B' D' F' D' F' D' B
+case,665,30,10,0,,
+solution,665,7,1,,F U' F' U' F U2 F
+solution,665,7,1,,F' U' F' U' F U2 F
+solution,665,7,1,,F U' F' U' B L2 B
+solution,665,7,1,,F' U' F' U' B L2 B
+solution,665,7,0,7,R' D R2 D' R2 D R
+solution,665,7,0,7,R' D R' D R D2 R
+solution,665,7,0,7,R' D R' D L B2 L
+solution,665,7,0,7,R' D' L' D R' D' L
+case,701,30,20,0,,
+solution,701,7,1,,F U F2 U' F2 U F
+solution,701,7,1,,F U F' U F U2 F
+solution,701,7,1,,F U F' U B L2 B
+solution,701,7,1,,F U' B' U F' U' B
+solution,701,7,0,7,R' D' L D R' D' L
+solution,701,7,0,7,R' F2 R U L' U L
+solution,701,7,0,7,L' U2 L U L' U L
+case,729,30,20,0,,
+solution,729,7,0,7,R' U D' R U' D R
+solution,729,7,0,7,L U R' U' L' U R
+solution,729,7,0,7,L U R' U R' U L
+case,731,30,10,0,,
+solution,731,7,1,,F U' D F U D' F
+solution,731,7,1,,B' U F' U' B' U F
+solution,731,7,1,,B' U F' U F' U B
+solution,731,7,0,7,R' D L D L D R
+solution,731,7,0,7,R' D L' D L D R
+solution,731,7,0,7,L' D R D' L' D R
+solution,731,7,0,7,L' D R D R' D L
+case,732,30,20,0,,
+solution,732,7,0,7,R' D L' D' R D L
+solution,732,7,0,7,R' B2 R' U' L U' L
+solution,732,7,0,7,L' D2 L' D' L D' L
+case,737,30,20,0,,
+solution,737,7,1,,F U B U B U F
+solution,737,7,1,,F U B' U B U F
+solution,737,7,1,,B D F D' B' D F
+solution,737,7,1,,B D F D F' D B
+case,738,30,30,0,,
+solution,738,7,1,,F L2 F' D B D B
+solution,738,7,1,,F' R2 F' U B U B
+solution,738,7,1,,B D2 B' D B D B
+solution,738,7,1,,B' D2 B' D B D B
+case,740,30,20,0,,
+solution,740,7,1,,F U' F U' F' U2 F
+solution,740,7,1,,F U' F2 U F2 U' F
+solution,740,7,1,,F U B U' F U B
+solution,740,7,1,,F U' F U' B' R2 B
+solution,740,7,0,7,L D L D R' B2 R
+solution,740,7,0,7,L' D L D R' B2 R
+solution,740,7,0,7,L D L D L' D2 L
+solution,740,7,0,7,L' D L D L' D2 L
+case,755,30,10,0,,
+solution,755,7,1,,F' U' D F U D' F
+solution,755,7,1,,B D F' D' B' D F
+solution,755,7,1,,B D F' D F' D B
+case,756,30,20,0,,
+solution,756,7,0,7,R' U2 R' U' R U' R
+solution,756,7,0,7,L' U R' U' L U R
+solution,756,7,0,7,L' B2 L' D' R D' R
+case,758,30,10,0,,
+solution,758,7,1,,F U F U F' U2 F
+solution,758,7,1,,F' U F U F' U2 F
+solution,758,7,1,,F U F U B' R2 B
+solution,758,7,1,,F' U F U B' R2 B
+solution,758,7,0,7,L D R D' L D R
+solution,758,7,0,7,L D' L D' R' B2 R
+solution,758,7,0,7,L D' L D' L' D2 L
+solution,758,7,0,7,L D' L2 D L2 D' L
+case,764,30,20,0,,
+solution,764,7,1,,F U B U B' U F
+solution,764,7,1,,F U B U' F' U B
+solution,764,7,1,,B D F D F D B
+solution,764,7,1,,B D F' D F D B
+case,809,30,20,0,,
+solution,809,7,1,,F' U B U B U F
+solution,809,7,1,,F' U B' U B U F
+solution,809,7,1,,B' U F U' B' U F
+solution,809,7,1,,B' U F U F' U B
+solution,809,7,0,7,R U D' R U' D R
+solution,809,7,0,7,L' D R' D' L' D R
+solution,809,7,0,7,L' D R' D R' D L
+case,810,30,30,0,,
+solution,810,7,1,,F R2 F' U B U B
+solution,810,7,1,,F' L2 F' D B D B
+solution,810,7,1,,B U2 B' U B U B
+solution,810,7,1,,B' U2 B' U B U B
+case,812,30,20,0,,
+solution,812,7,1,,F' U B U B' U F
+solution,812,7,1,,F' U B U' F' U B
+solution,812,7,1,,B' U F U F U B
+solution,812,7,1,,B' U F' U F U B
+solution,812,7,0,7,R' D L' D L' D R
+solution,812,7,0,7,R' D L' D' R' D L
+solution,812,7,0,7,L U D' L U' D L
+case,818,30,30,0,,
+solution,818,7,1,,F U2 F' U F U F
+solution,818,7,1,,F' U2 F' U F U F
+solution,818,7,1,,B L2 B' U F U F
+solution,818,7,1,,B' R2 B' D F D F
+case,836,30,20,0,,
+solution,836,7,1,,F' U' F U' F' U2 F
+solution,836,7,1,,F' U' F2 U F2 U' F
+solution,836,7,1,,F' U B U' F U B
+solution,836,7,1,,F' U' F U' B' R2 B
+solution,836,7,0,7,R U2 R' U' R U' R
+solution,836,7,0,7,L D R' D' L D R
+solution,836,7,0,7,L F2 L' U' R U' R
+case,971,30,10,0,,
+solution,971,7,0,7,R D L D L D R
+solution,971,7,0,7,R D L' D L D R
+solution,971,7,0,7,L U R U' L' U R
+solution,971,7,0,7,L U R U R' U L
+case,972,30,20,0,,
+solution,972,7,0,7,R D L' D L' D R
+solution,972,7,0,7,R D L' D' R' D L
+solution,972,7,0,7,L' U' D L U D' L
+case,974,30,10,0,,
+solution,974,7,1,,F' U2 F' U' F U' F
+solution,974,7,1,,B' U F' U' B U F
+solution,974,7,1,,B' R2 B' D' F D' F
+case,980,30,20,0,,
+solution,980,7,1,,B D F D' B D F
+solution,980,7,1,,B D' B D' F' R2 F
+solution,980,7,1,,B D' B D' B' D2 B
+solution,980,7,1,,B D' B2 D B2 D' B
+solution,980,7,0,7,L U L U R' F2 R
+solution,980,7,0,7,L' U L U R' F2 R
+solution,980,7,0,7,L U L U L' U2 L
+solution,980,7,0,7,L' U L U L' U2 L
+case,998,30,10,0,,
+solution,998,7,1,,F U2 F' U' F U' F
+solution,998,7,1,,B D F' D' B D F
+solution,998,7,1,,B L2 B' U' F U' F
+solution,998,7,0,7,L' U R U' L U R
+solution,998,7,0,7,L' U' L U' R' F2 R
+solution,998,7,0,7,L' U' L U' L' U2 L
+solution,998,7,0,7,L' U' L2 U L2 U' L
+case,1052,30,20,0,,
+solution,1052,7,1,,B' U F U' B U F
+solution,1052,7,1,,B' U' B U' F' L2 F
+solution,1052,7,1,,B' U' B U' B' U2 B
+solution,1052,7,1,,B' U' B2 U B2 U' B
+solution,1052,7,0,7,R D L' D' R D L
+solution,1052,7,0,7,R B2 R' U' L U' L
+solution,1052,7,0,7,L U2 L' U' L U' L
+case,1459,30,10,0,,
+solution,1459,7,0,7,R' U' L U' L' U' R
+solution,1459,7,0,7,R' U' L' U' L' U' R
+solution,1459,7,0,7,L' D' R' D L D' R
+solution,1459,7,0,7,L' D' R' D' R D' L
+case,1463,30,20,0,,
+solution,1463,7,1,,F D' B D' B' D' F
+solution,1463,7,1,,F D' B' D' B' D' F
+solution,1463,7,1,,B D' F' D B D' F
+solution,1463,7,1,,B D' F' D' F D' B
+solution,1463,7,0,7,R' U D' R' U' D R
+solution,1463,7,0,7,L U' R U L U' R
+solution,1463,7,0,7,L U' R U' R U' L
+case,1465,30,10,0,,
+solution,1465,7,1,,B D' B' D' F L2 F
+solution,1465,7,1,,B' D' B' D' F L2 F
+solution,1465,7,1,,B D' B' D' B D2 B
+solution,1465,7,1,,B' D' B' D' B D2 B
+solution,1465,7,0,7,R' U R2 U' R2 U R
+solution,1465,7,0,7,R' U R' U R U2 R
+solution,1465,7,0,7,R' U R' U L F2 L
+solution,1465,7,0,7,R' U' L' U R' U' L
+case,1475,30,10,0,,
+solution,1475,7,1,,F U' D F' U D' F
+solution,1475,7,1,,B' U' F U B U' F
+solution,1475,7,1,,B' U' F U' F U' B
+case,1477,30,00,0,,
+solution,1477,7,0,7,R F2 R U' L' U' L
+solution,1477,7,0,7,R' B2 R D' L' D' L
+solution,1477,7,0,7,L D2 L D' L' D' L
+solution,1477,7,0,7,L' D2 L D' L' D' L
+case,1481,30,10,0,,
+solution,1481,7,1,,F D' B D F' D' B
+solution,1481,7,1,,F L2 F U B' U B
+solution,1481,7,1,,B D2 B D B' D B
+case,1511,30,20,0,,
+solution,1511,7,1,,F' D' B D' B' D' F
+solution,1511,7,1,,F' D' B' D' B' D' F
+solution,1511,7,1,,B' U' F' U B U' F
+solution,1511,7,1,,B' U' F' U' F U' B
+case,1513,30,10,0,,
+solution,1513,7,1,,B U' B' U' F R2 F
+solution,1513,7,1,,B' U' B' U' F R2 F
+solution,1513,7,1,,B U' B' U' B U2 B
+solution,1513,7,1,,B' U' B' U' B U2 B
+solution,1513,7,0,7,L' D L' D R F2 R
+solution,1513,7,0,7,L' D' R' D L' D' R
+solution,1513,7,0,7,L' D L2 D' L2 D L
+solution,1513,7,0,7,L' D L' D L D2 L
+case,1517,30,20,0,,
+solution,1517,7,0,7,R U2 R U R' U R
+solution,1517,7,0,7,L U' R U L' U' R
+solution,1517,7,0,7,L F2 L D R' D R
+case,1529,30,10,0,,
+solution,1529,7,1,,F' D' B D' B D' F
+solution,1529,7,1,,F' D' B D F D' B
+solution,1529,7,1,,B U D' B' U' D B
+case,1619,30,10,0,,
+solution,1619,7,1,,F' U' D F' U D' F
+solution,1619,7,1,,B D' F D B D' F
+solution,1619,7,1,,B D' F D' F D' B
+solution,1619,7,0,7,R U' L U' L' U' R
+solution,1619,7,0,7,R U' L' U' L' U' R
+solution,1619,7,0,7,L U' R' U L U' R
+solution,1619,7,0,7,L U' R' U' R U' L
+case,1621,30,00,0,,
+solution,1621,7,0,7,R U2 R U' R' U' R
+solution,1621,7,0,7,R' U2 R U' R' U' R
+solution,1621,7,0,7,L F2 L D' R' D' R
+solution,1621,7,0,7,L' B2 L U' R' U' R
+case,1625,30,10,0,,
+solution,1625,7,1,,F D' B D' B D' F
+solution,1625,7,1,,F D' B D F D' B
+solution,1625,7,1,,B' U' D B' U D' B
+solution,1625,7,0,7,R U' L' U' L U' R
+solution,1625,7,0,7,R U' L' U R U' L
+solution,1625,7,0,7,L U' R U' R' U' L
+solution,1625,7,0,7,L U' R' U' R' U' L
+case,1637,30,00,0,,
+solution,1637,7,0,7,R B2 R D' L' D' L
+solution,1637,7,0,7,R' F2 R U' L' U' L
+solution,1637,7,0,7,L U2 L U' L' U' L
+solution,1637,7,0,7,L' U2 L U' L' U' L
+case,1673,30,10,0,,
+solution,1673,7,1,,F' D' B D F' D' B
+solution,1673,7,1,,F' L2 F U B' U B
+solution,1673,7,1,,B' U2 B U B' U B
+solution,1673,7,0,7,L U L' U R B2 R
+solution,1673,7,0,7,L U' R' U L' U' R
+solution,1673,7,0,7,L U L2 U' L2 U L
+solution,1673,7,0,7,L U L' U L U2 L
+case,1943,30,20,0,,
+solution,1943,7,0,7,R U D' R' U' D R
+solution,1943,7,0,7,L' D' R D L D' R
+solution,1943,7,0,7,L' D' R D' R D' L
+case,1945,30,10,0,,
+solution,1945,7,0,7,R' U' L' U' L U' R
+solution,1945,7,0,7,R' U' L' U R U' L
+solution,1945,7,0,7,L' D' R D' R' D' L
+solution,1945,7,0,7,L' D' R' D' R' D' L
+case,1949,30,20,0,,
+solution,1949,7,1,,B' D B' D F L2 F
+solution,1949,7,1,,B' D' F' D B' D' F
+solution,1949,7,1,,B' D B2 D' B2 D B
+solution,1949,7,1,,B' D B' D B D2 B
+solution,1949,7,0,7,R U' R' U' R U2 R
+solution,1949,7,0,7,R' U' R' U' R U2 R
+solution,1949,7,0,7,R U' R' U' L F2 L
+solution,1949,7,0,7,R' U' R' U' L F2 L
+case,1961,30,10,0,,
+solution,1961,7,1,,F U2 F U F' U F
+solution,1961,7,1,,B U' F U B' U' F
+solution,1961,7,1,,B L2 B D F' D F
+case,1997,30,20,0,,
+solution,1997,7,1,,B U B' U F R2 F
+solution,1997,7,1,,B U' F' U B' U' F
+solution,1997,7,1,,B U B2 U' B2 U B
+solution,1997,7,1,,B U B' U B U2 B
+solution,1997,7,0,7,R' U2 R U R' U R
+solution,1997,7,0,7,L' D' R D L' D' R
+solution,1997,7,0,7,L' B2 L U R' U R
+case,2105,30,10,0,,
+solution,2105,7,1,,F' U2 F U F' U F
+solution,2105,7,1,,B' D' F D B' D' F
+solution,2105,7,1,,B' R2 B U F' U F
+solution,2105,7,0,7,R U R2 U' R2 U R
+solution,2105,7,0,7,R U R' U R U2 R
+solution,2105,7,0,7,R U R' U L F2 L
+solution,2105,7,0,7,R U' L' U R' U' L
