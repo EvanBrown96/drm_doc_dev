@@ -102,15 +102,6 @@ function App() {
     return () => document.removeEventListener('keydown', key_press);
   }, [key_press]);
 
-  //   else if(state[1] == "showing_solution") {
-  //     training_controls = <>
-  //       <button className="text-zinc-800 bg-zinc-100" onClick={dispatchRandomCase}>New Case</button>
-  //       <div className="h-60 overflow-auto w-1/2">
-  //         {currentTraining.case.solutions.filter(s => s.length <= training_params.max_display).map(s => <p>{s.solution}</p>)}
-  //       </div>
-  //     </>
-  //   }
-
   return (
     <>
       <div className="flex flex-col justify-between h-screen">

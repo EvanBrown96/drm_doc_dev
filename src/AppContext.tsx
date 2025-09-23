@@ -2,8 +2,8 @@ import { useReducer, createContext, useContext, useEffect } from 'react';
 import { useDb } from './data_access/db';
 import { useCubelib } from './cubelib_loader';
 import type { Case } from './types/types';
-import { gen_setup } from "./cube_functions"
-import { AppState, AppStateAction, StandardTrainingParameters, StandardTrainer, setupState, updateTrainingParams, StandardTrainerState, SetupState } from './app_state';
+import { AppState, AppStateAction, StandardTrainingParameters, StandardTrainer, setupState, updateTrainingParams, StandardTrainerState } from './app_state';
+import { getItem, setItem } from './persist';
 
 let AppStateContext = createContext(null);
 let AppDispatchContext = createContext(null);
@@ -69,7 +69,8 @@ function stateReducer(app_state: AppState, action: AppStateAction): AppState {
 function setupStateReducer(app_state: AppState, action: AppStateAction): AppState {
     switch(action.type) {
         case 'finished_init':
-            return StandardTrainer.IdleState(app_state, DEFAULT_TRAINING)
+            const params = getItem("standard_params", DEFAULT_TRAINING);
+            return StandardTrainer.IdleState(app_state, params);
         case 'reset':
             return setupState();
     }
@@ -79,7 +80,9 @@ function setupStateReducer(app_state: AppState, action: AppStateAction): AppStat
 function standardStateReducer(app_state: StandardTrainerState, action: AppStateAction): StandardTrainerState {
     switch(action.type) {
         case 'set_training_params':
-            return StandardTrainer.IdleState(app_state, updateTrainingParams(app_state.training_parameters, action.settings));
+            const new_state = StandardTrainer.IdleState(app_state, updateTrainingParams(app_state.training_parameters, action.settings));
+            setItem("standard_params", new_state.training_parameters);
+            return new_state;
         case 'data_loaded':
             return assignRandomCase({...app_state, training_cases: action.data});
         case 'new_case':
