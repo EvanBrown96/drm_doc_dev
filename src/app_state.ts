@@ -1,14 +1,24 @@
 import type { Case } from './types/types';
 import { gen_setup } from "./cube_functions";
 
-export type AppState = SetupState | StandardTrainerState | ErrorState;
+export type AppState = SetupState | StandardTrainerState;
 
-export type SetupState = {
+export type GlobalSettings = {
+    timer_enabled: boolean
+};
+
+export interface GenericState {
+    state: string,
+    substate: string,
+    global_settings: GlobalSettings
+}
+
+export interface SetupState extends GenericState {
     state: 'setup',
     substate: 'initializing'
 }
 
-export type StandardTrainerState = {
+export interface StandardTrainerState extends GenericState {
     state: 'training',
     substate: 'idle' | 'loading_data' | 'awaiting_case' | 'training' | 'showing_solution' | 'invalid_settings',
     training_parameters: StandardTrainingParameters,
@@ -18,11 +28,6 @@ export type StandardTrainerState = {
         time_since_queue: number,
         queued: Case[]
     }
-}
-
-type ErrorState = {
-    state: 'error',
-    substate: string
 }
 
 export type StandardTrainingParameters = {
@@ -50,13 +55,13 @@ export type AppStateAction =
 | { type: 'invalid_settings' }
 | { type: 'new_case' };
 
-function setupState(): SetupState {
-    return {state: 'setup', substate: 'initializing'};
+function setupState(settings: GlobalSettings): SetupState {
+    return {state: 'setup', substate: 'initializing', global_settings: settings};
 }
 
 const StandardTrainer = {
     IdleState: (previous_state: AppState, training_params: StandardTrainingParameters): StandardTrainerState => {
-        return {state: 'training', substate: 'idle', training_parameters: training_params}
+        return {...previous_state, state: 'training', substate: 'idle', training_parameters: training_params}
     },
 
     LoadingState: (previous_state: StandardTrainerState): StandardTrainerState => {

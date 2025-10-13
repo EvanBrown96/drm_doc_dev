@@ -19,7 +19,7 @@ function AppContextProvider({ children }) {
         return () => dispatch({type: 'reset'})
     }, [cubeLibLoaded]);
 
-    const [state, dispatch] = useReducer(stateReducer, setupState());
+    const [state, dispatch] = useReducer(stateReducer, setupState({timer_enabled: true}));
 
     useEffect(() => {
         if(state.state == 'training') {
@@ -72,7 +72,7 @@ function setupStateReducer(app_state: AppState, action: AppStateAction): AppStat
             const params = getItem("standard_params", DEFAULT_TRAINING);
             return StandardTrainer.IdleState(app_state, params);
         case 'reset':
-            return setupState();
+            return setupState(app_state.global_settings);
     }
     throw Error("invalid app state");
 }
@@ -109,7 +109,7 @@ function standardStateReducer(app_state: StandardTrainerState, action: AppStateA
             if(assigned_random_case.queue) new_queue = {...assigned_random_case.queue, queued: [...assigned_random_case.queue.queued]};
             else new_queue = {queued: [], time_since_queue: 0};
             new_queue.queued.push(last_case);
-            return {
+            return { 
                 ...assigned_random_case,
                 queue: new_queue
             }

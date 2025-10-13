@@ -142,8 +142,13 @@ function App() {
               {training_controls}
               <div className="divider"></div>
               {bottom_panes}
-            </div>
 
+              
+              <div className="absolute left-1/5 top-1/3 flex flex-col">
+                <label className="btn">Timer</label>
+                {/* <label className="btn">Case History</label> */}
+              </div>
+            </div>
           </div>
           <div className="drawer-side">
             <label htmlFor="settings-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
