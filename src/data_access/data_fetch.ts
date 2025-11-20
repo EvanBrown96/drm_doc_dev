@@ -34,12 +34,12 @@ function parseCaseData(case_data: string): {cases: Case[], solutions: Solution[]
 }
 
 async function readRzpData(rzp: string): Promise<{cases: Case[], solutions: Solution[]}> {
-    let response = await fetch("/drm_doc/" + rzp + "_db_input.csv");
+    let response = await fetch("/drm_doc_dev/" + rzp + "_db_input.csv");
     return parseCaseData(await response.text());
 }
 
 async function readVersionData() {
-    let response = await fetch("/drm_doc/versions.csv");
+    let response = await fetch("/drm_doc_dev/versions.csv");
     let text = (await response.text()).split("\n");
 
     let versions = {};
