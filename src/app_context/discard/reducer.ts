@@ -39,20 +39,24 @@ function discardStateReducer(app_state: DiscardTrainerState, action: AppStateAct
                 queue: new_queue
             }
         case 'guess_yes': {
-            let statistics = { ...app_state.statistics, total: app_state.statistics.total + 1 };
             if(app_state.current_training.case.solutions[0].length <= app_state.training_parameters.max_length) {
+                let statistics = { ...app_state.statistics, total_good: app_state.statistics.total_good + 1 };
+                setItem('discard_stats', statistics);
                 return DiscardTrainer.CorrectChoiceState(app_state, statistics);
             }
-            statistics.false_positive++;
-            setItem('discard_stats', statistics)
+
+            let statistics = { ...app_state.statistics, total_bad: app_state.statistics.total_bad + 1, false_positive: app_state.statistics.false_positive + 1}
+            setItem('discard_stats', statistics);
             return DiscardTrainer.IncorrectChoiceState(app_state, statistics);
         }
         case 'guess_no': {
-            let statistics = { ...app_state.statistics, total: app_state.statistics.total + 1 };
             if(app_state.current_training.case.solutions[0].length > app_state.training_parameters.max_length) {
+                let statistics = { ...app_state.statistics, total_bad: app_state.statistics.total_bad + 1 };
+                setItem('discard_stats', statistics);
                 return DiscardTrainer.CorrectChoiceState(app_state, statistics);
             }
-            statistics.false_negative++;
+
+            let statistics = { ...app_state.statistics, total_good: app_state.statistics.total_good + 1, false_negative: app_state.statistics.false_negative + 1}
             setItem('discard_stats', statistics);
             return DiscardTrainer.IncorrectChoiceState(app_state, statistics);
         }

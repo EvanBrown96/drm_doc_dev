@@ -169,14 +169,12 @@ function App() {
       }
     }
 
-    if(state.statistics.total > 0) {
-      info_stuff = <>
-        {info_stuff}
-        <p>False Positive Rate: {Math.round(state.statistics.false_positive * 1000 / state.statistics.total) / 10}%</p>
-        <p>False Negative Rate: {Math.round(state.statistics.false_negative * 1000 / state.statistics.total) / 10}%</p>
-        <button className="btn" onClick={dispatchResetStats}>Reset</button>
-      </>
-    }
+    info_stuff = <>
+      {info_stuff}
+      <p>False Positive Rate: {Math.round(state.statistics.false_positive * 1000 / state.statistics.total_bad) / 10}%</p>
+      <p>False Negative Rate: {Math.round(state.statistics.false_negative * 1000 / state.statistics.total_good) / 10}%</p>
+      <button className="btn" onClick={dispatchResetStats}>Reset</button>
+    </>
 
     training_display = <ScrambleDisplayFrame scramble={training_setup}></ScrambleDisplayFrame>
   }

@@ -17,7 +17,8 @@ export interface DiscardTrainerState extends GenericState {
         queued: DiscardMetadataCase[]
     },
     statistics?: {
-        total: number,
+        total_good: number,
+        total_bad: number
         false_positive: number,
         false_negative: number
     }
@@ -53,7 +54,7 @@ function updateDiscardTrainingParams(current_params: DiscardTrainingParameters, 
     }
 }
 
-const ZERO_STATS = {total: 0, false_positive: 0, false_negative: 0};
+const ZERO_STATS = {total_good: 0, total_bad: 0, false_positive: 0, false_negative: 0};
 
 const DiscardTrainer = {
     IdleState: (previous_state: AppState, training_params: DiscardTrainingParameters): DiscardTrainerState => {
