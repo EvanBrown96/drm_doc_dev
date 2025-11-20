@@ -1,7 +1,7 @@
 import { RZPs } from '../constants.js';
-import { useAppDispatch } from '../AppContext.jsx';
+import { useAppDispatch } from '../app_context/AppContext.jsx';
 
-function RzpSelect({ defaultValue }) {
+function RzpSelect({ defaultValue, includeAll = false }) {
     const app_dispatch = useAppDispatch();
 
     function updateStateWithDrm(new_drm) {
@@ -12,9 +12,11 @@ function RzpSelect({ defaultValue }) {
             }
         })
     }
-
+    
+    let selection = RZPs.map(r =>r);
+    if(includeAll) selection.push("all")
     return <select defaultValue={defaultValue} onChange={(event) => updateStateWithDrm(event.target.value)}>
-        {RZPs.map(r => <option className="text-zinc-800" key={r}>{r}</option>)}
+        {selection.map(r => <option className="text-zinc-800" key={r}>{r}</option>)}
     </select>
 }
 

@@ -2,13 +2,15 @@
 // import viteLogo from '/vite.svg'
 import './App.css';
 import { RzpSelect } from './components/RzpSelect';
-import { useAppState, useAppDispatch, useDispatchNewCase, useDispatchQueueCase } from './AppContext';
+import { useAppState, useAppDispatch, useDispatchNewCase, useDispatchQueueCase, useDispatchResetStats } from './app_context/AppContext';
 import { InputSlider } from './components/InputSlider';
+import { CheckBox } from './components/CheckBox';
 import { ScrambleDisplayFrame } from './components/ScrambleDisplayFrame';
 import { SolutionDisplay } from './components/SolutionDisplay';
 import { useEffect } from 'react';
 import { VERSION } from './constants';
-import { StandardTrainer } from './app_state';
+import { StandardTrainer } from './app_context/standard/app_state';
+import { DiscardTrainer } from './app_context/discard/app_state';
 
 function App() {
 
@@ -16,12 +18,14 @@ function App() {
   const dispatch = useAppDispatch();
   const dispatchNewCase = useDispatchNewCase();
   const dispatchQueueCase = useDispatchQueueCase();
+  const dispatchResetStats = useDispatchResetStats();
   
   let training_display, training_controls, training_text;
   let solutions = <SolutionDisplay solutions={[]}></SolutionDisplay>;
   let key_press;
   let error_bar = <></>;
   let parameter_selection = <></>;
+  let info_stuff = <></>;
 
   if(state.state == 'setup') {
     training_display = <></>;
@@ -44,6 +48,10 @@ function App() {
             settings: {
                 min_trigger: Number(event.target.value)
             }})}></InputSlider>
+      <CheckBox label="Include EO Breaking" defaultValue={training_params.eo_breaking} onChange={(event) => dispatch({type: 'set_training_params',
+            settings: {
+              eo_breaking: event.target.checked
+            }})}></CheckBox>
     </>;
 
     let training_setup = "";
@@ -90,6 +98,87 @@ function App() {
     }
 
     training_display = <ScrambleDisplayFrame scramble={training_setup}></ScrambleDisplayFrame>
+  } else if(state.state == 'discard') {
+
+    info_stuff = <><p>...</p></>
+    const substate = DiscardTrainer.getAppSubState(state);
+    const training_params = DiscardTrainer.getTrainingParams(state);
+    parameter_selection = <>
+      <RzpSelect defaultValue={training_params.drm} includeAll={true}></RzpSelect>
+      <InputSlider label="Length Threshold" start={1} end={7} defaultValue={training_params.max_length} onChange={(event) => dispatch({type: 'set_training_params',
+            settings: {
+                max_length: Number(event.target.value)
+            }})}></InputSlider>
+      <InputSlider label="Good Case %" start={0} end={100} step={5} defaultValue={training_params.good_case_ratio} onChange={(event) => dispatch({type: 'set_training_params',
+            settings: {
+                good_case_ratio: Number(event.target.value)
+            }})}></InputSlider>
+    </>;
+
+    let training_setup = "";
+    if(substate == "idle") {
+      training_text = "Click to start training...";
+      training_controls = <button className="btn" title="spacebar" onClick={dispatchNewCase}>New Case</button>;
+      key_press = e => { if([" ", "Enter"].includes(e.key)) dispatchNewCase(); }
+    }
+    else if(substate == "invalid_settings") {
+      training_text = "No cases :("
+      training_controls = <button className="btn btn-disabled">New Case</button>
+      error_bar = 
+        <div role="alert" className="alert alert-error alert-soft">
+          <span>No cases match the selected criteria.</span>
+        </div>;
+    }
+    else if(substate == "loading_data") {
+      training_text = "Loading cases..."
+      training_controls = <button className="btn btn-disabled">See Solutions</button>
+    }
+    else if(substate == "awaiting_case") {
+      training_text = "...";
+      training_controls = <div className="flex flex-row space-x-4">
+        <button className="btn" title="y">{training_params.max_length} or less</button>
+        <button className="btn" title="n">More than {training_params.max_length}</button>
+      </div>
+    }
+    else if(substate == "training") {
+      training_setup = DiscardTrainer.getCurrentTraining(state).setup;
+      training_text = training_setup;
+      training_controls = <div className="flex flex-row space-x-4">
+        <button className="btn" title="y" key="yes" onClick={() => dispatch({type: 'guess_yes'})}>{training_params.max_length} or less</button>
+        <button className="btn" title="n" key="no" onClick={() => dispatch({type: 'guess_no'})}>More than {training_params.max_length}</button>
+      </div>
+      key_press = e => { 
+        if(["y"].includes(e.key)) dispatch({type: 'guess_yes'});
+        else if(["n"].includes(e.key)) dispatch({type: 'guess_no'});
+      }
+    }
+    else if(substate == "correct_choice" || substate == "incorrect_choice") {
+      if(substate == "correct_choice") info_stuff = <p className="text-green-500">CORRECT</p>
+      else                             info_stuff = <p className="text-red-500">INCORRECT</p>
+      const current_training = DiscardTrainer.getCurrentTraining(state);
+      training_setup = current_training.setup;
+      training_text = training_setup;
+      training_controls = <div className="flex flex-row space-x-4">
+        <button className="btn" title="spacebar" onClick={dispatchNewCase}>New Case</button>
+        <button className="btn" title="q" onClick={dispatchQueueCase}>Queue</button>
+      </div>;
+      solutions = <SolutionDisplay solutions={current_training.case.solutions}></SolutionDisplay>;
+      key_press = e => { 
+        if([" ", "Enter"].includes(e.key)) dispatchNewCase();
+        else if(e.key == "q") dispatchQueueCase();
+      }
+    }
+
+    if(state.statistics.total > 0) {
+      info_stuff = <>
+        {info_stuff}
+        <p>False Positive Rate: {Math.round(state.statistics.false_positive * 1000 / state.statistics.total) / 10}%</p>
+        <p>False Negative Rate: {Math.round(state.statistics.false_negative * 1000 / state.statistics.total) / 10}%</p>
+        <button className="btn" onClick={dispatchResetStats}>Reset</button>
+      </>
+    }
+
+    training_display = <ScrambleDisplayFrame scramble={training_setup}></ScrambleDisplayFrame>
   }
 
   
@@ -97,9 +186,9 @@ function App() {
 
   useEffect(() => {
     if(!key_press) return;
-    document.addEventListener('keydown', key_press);
+    document.addEventListener('keyup', key_press);
 
-    return () => document.removeEventListener('keydown', key_press);
+    return () => document.removeEventListener('keyup', key_press);
   }, [key_press]);
 
   return (
@@ -117,8 +206,8 @@ function App() {
                   <ul
                     tabIndex={0}
                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                    <li><a>Standard</a></li>
-                    <li><a>Discard</a></li>
+                    <li><a onClick={() => dispatch({type: "switch_trainer", trainer: "standard"})}>Standard Trainer</a></li>
+                    <li><a onClick={() => dispatch({type: "switch_trainer", trainer: "discard"})}>Discard Trainer</a></li>
                   </ul>
                 </div>
               </div>
@@ -144,9 +233,13 @@ function App() {
               {bottom_panes}
 
               
-              <div className="absolute left-1/5 top-1/3 flex flex-col">
+              <div className="absolute left-1/5 top-40 flex flex-col">
                 <label className="btn">Timer</label>
-                {/* <label className="btn">Case History</label> */}
+                <label className="btn">Flagged Cases</label>
+              </div>
+
+              <div className="absolute right-1/5 top-40 flex flex-col">
+                {info_stuff}
               </div>
             </div>
           </div>

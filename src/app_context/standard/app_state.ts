@@ -1,22 +1,7 @@
-import type { Case } from './types/types';
-import { gen_setup } from "./cube_functions";
+import type { Case } from '../../types/types';
+import { gen_setup } from "../../cube_functions";
+import { GenericState, AppState } from '../common_app_state';
 
-export type AppState = SetupState | StandardTrainerState;
-
-export type GlobalSettings = {
-    timer_enabled: boolean
-};
-
-export interface GenericState {
-    state: string,
-    substate: string,
-    global_settings: GlobalSettings
-}
-
-export interface SetupState extends GenericState {
-    state: 'setup',
-    substate: 'initializing'
-}
 
 export interface StandardTrainerState extends GenericState {
     state: 'training',
@@ -24,17 +9,36 @@ export interface StandardTrainerState extends GenericState {
     training_parameters: StandardTrainingParameters,
     current_training?: {case: Case, setup: string},
     training_cases?: Case[],
-    queue?: {
+    queue: {
         time_since_queue: number,
         queued: Case[]
     }
 }
 
+export type StandardTrainerAction =
+| { type: 'set_training_params', settings: Partial<StandardTrainingParameters> }
+| { type: 'data_loaded', data: Case[] }
+| { type: 'set_training_case', case: Case, setup: string }
+| { type: 'see_solutions' }
+| { type: 'queue_case' }
+| { type: 'invalid_settings' }
+| { type: 'new_case' };
+
 export type StandardTrainingParameters = {
     drm: string,
     max_length: number,
     max_trigger: number,
-    min_trigger: number
+    min_trigger: number,
+    eo_breaking: boolean
+};
+
+const DEFAULT_TRAINING: StandardTrainingParameters =
+{
+    drm: "4c4e",
+    max_length: 5,
+    max_trigger: 4,
+    min_trigger: 1,
+    eo_breaking: false
 };
 
 function updateTrainingParams(current_params: StandardTrainingParameters, update: Partial<StandardTrainingParameters>) {
@@ -44,24 +48,10 @@ function updateTrainingParams(current_params: StandardTrainingParameters, update
     }
 }
 
-export type AppStateAction =
-  { type: 'finished_init' }
-| { type: 'set_training_params', settings: Partial<StandardTrainingParameters> }
-| { type: 'reset' }
-| { type: 'data_loaded', data: Case[] }
-| { type: 'set_training_case', case: Case, setup: string }
-| { type: 'see_solutions' }
-| { type: 'queue_case' }
-| { type: 'invalid_settings' }
-| { type: 'new_case' };
-
-function setupState(settings: GlobalSettings): SetupState {
-    return {state: 'setup', substate: 'initializing', global_settings: settings};
-}
-
 const StandardTrainer = {
     IdleState: (previous_state: AppState, training_params: StandardTrainingParameters): StandardTrainerState => {
-        return {...previous_state, state: 'training', substate: 'idle', training_parameters: training_params}
+        return {...previous_state, state: 'training', substate: 'idle', training_parameters: training_params, 
+                current_training: null, training_cases: null, queue: {queued: [], time_since_queue: 0}}
     },
 
     LoadingState: (previous_state: StandardTrainerState): StandardTrainerState => {
@@ -114,4 +104,5 @@ const StandardTrainer = {
     }
 }
 
-export { StandardTrainer, setupState, updateTrainingParams };
+
+export { StandardTrainer, updateTrainingParams, DEFAULT_TRAINING };

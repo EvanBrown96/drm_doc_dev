@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function InputSlider({label, start, end, defaultValue, onChange}) {
+function InputSlider({label, start, end, defaultValue, step=1, onChange}) {
 
     const [internal_value, set_internal] = useState(defaultValue);
 
@@ -12,7 +12,7 @@ function InputSlider({label, start, end, defaultValue, onChange}) {
     return (
         <div className="w-full flex flex-row justify-between space-x-4">
             <div>{label}</div>
-            <input type="range" step={1} min={start} max={end} defaultValue={defaultValue} onChange={onChange2} />
+            <input type="range" step={step} min={start} max={end} defaultValue={defaultValue} onChange={onChange2} />
             <div>{internal_value}</div>
         </div>)
 

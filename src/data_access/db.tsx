@@ -23,7 +23,14 @@ function useDb(){
         }
     }, []);
 
-    async function getCases(rzp: string, min_length: number, max_length: number, min_trigger: number, max_trigger: number): Promise<Case[]> {
+    async function getCases(rzp: string, min_length: number, max_length: number, min_trigger: number, max_trigger: number, eo_breaking: boolean): Promise<Case[]> {
+        if(rzp == "all") {
+            let cases: Case[] = [];
+            for(let r of RZPs){
+                cases = cases.concat(await getCases(r, min_length, max_length, min_trigger, max_trigger, eo_breaking));
+            }
+            return cases;
+        }
         if(!loaded.current.includes(rzp)) {
 
             let worker = new FetchWorker();
@@ -42,8 +49,11 @@ function useDb(){
 
         let matching_solns: Solution[] = data.solutions.filter(s => {
             if(s["length"] > max_length) return false;
-            if(s["trigger"] > max_trigger) return false;
-            if(s["trigger"] < min_trigger) return false;
+            if(s["eo_breaking"] && !eo_breaking) return false;
+            if(!s["eo_breaking"]) {
+                if(s["trigger"] > max_trigger) return false;
+                if(s["trigger"] < min_trigger) return false;
+            }
             if(s["length"] < min_length) return false;
             return true;
         })
