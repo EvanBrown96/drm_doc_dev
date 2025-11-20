@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  base: "/drm_doc"
+  base: "/drm_doc_dev"
 })
